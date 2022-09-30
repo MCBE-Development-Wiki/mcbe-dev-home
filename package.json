@@ -1,0 +1,20 @@
+{
+  "name": "mcbe-dev-home",
+  "version": "1.0.0",
+  "description": "Minecraft Bedrock Edition Documentation",
+  "main": "index.js",
+  "repository": "ubuntu@43.142.236.157:mcbe-dev-home.git",
+  "author": "MiemieMethod <40489495+MiemieMethod@users.noreply.github.com>",
+  "license": "CC-BY-NC-SA-4.0",
+  "private": true,
+  "devDependencies": {
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.48",
+    "@vuepress/plugin-html-redirect": "^0.1.4",
+    "@vuepress/plugin-search": "^2.0.0-beta.51",
+    "vuepress": "^2.0.0-beta.51"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
