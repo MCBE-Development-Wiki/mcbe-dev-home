@@ -1,0 +1,19 @@
+name: Deploy to server
+on: [push]
+jobs:
+  deploy-to-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+
+      - name: Build and deploy
+        run: |
+          yarn && yarn docs:build
+          rsync -avz ./dist/ ${{ secrets.DEPLOY_PATH }}
