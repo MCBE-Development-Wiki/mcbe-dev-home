@@ -1,6 +1,8 @@
 # mcbe-dev-home
 
-Minecraft基岩版开发文档
+Minecraft 基岩版开发文档
+
+![GitHub Pages](https://github.com/MCBE-Development-Wiki/mcbe-dev-home/actions/workflows/vuepress-deploy.yml/badge.svg) ![Host Server](https://github.com/MCBE-Development-Wiki/mcbe-dev-home/actions/workflows/deploy-to-site.yml/badge.svg)
 
 [![CC by-nc-sa 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]<br/>
 如无特殊说明，本作品采用[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa]进行许可。
