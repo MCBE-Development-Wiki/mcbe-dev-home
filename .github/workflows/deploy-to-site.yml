@@ -16,4 +16,4 @@ jobs:
       - name: Build and deploy
         run: |
           yarn && yarn docs:build
-          rsync -avz ./dist/ ${{ secrets.DEPLOY_PATH }}
+          rsync -avz docs/.vuepress/dist/ ${{ secrets.DEPLOY_PATH }}
