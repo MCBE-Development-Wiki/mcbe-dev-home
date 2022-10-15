@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div style="margin:0 auto; padding:2px 0;">
-        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011602000982" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/addons/images/beian.png" style="float:left;"/>京公网安备 11011602000982号</a> | <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2022027746号-1</a>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011602000982" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="/images/beian.png" style="float:left;"/>京公网安备 11011602000982号</a> | <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2022027746号-1</a>
 	</div>
     <div style="margin:0 auto; padding:2px 0;">
         本网站与<a href="https://www.minecraft.net/mojang-careers">Mojang Studios</a>、<a href="https://www.microsoft.com/about">Microsoft</a>和<a href="https://ir.netease.com/zh-hans/company-overview/corporate-profile">上海网之易吾世界网络科技有限公司</a>皆无任何从属关系
