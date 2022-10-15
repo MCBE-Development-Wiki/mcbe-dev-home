@@ -23,13 +23,7 @@ features:
 externalLinkIcon: false
 ---
 
-[![CC by-nc-sa 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]<br/>
-如无特殊说明，本作品采用[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa]进行许可。
+<br/><span style="display: flex; flex-direction: row; justify-content: flex-end; position: relative; float: right; clear: right; margin: 0.45em;"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC by-nc-sa 4.0"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" alt="CC by 4.0"></span>如无特殊说明，本网站内容将依据各页面顶注徽章不同分别采用[知识共享 署名-非商业性使用-相同方式共享 4.0 国际许可][cc-by-nc-sa]或[知识共享 署名 4.0 国际许可][cc-by]协议进行许可。
 
 [cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
-[cc-by-nc-sa-image]: https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg
-[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY%20NC%20SA%204.0-lightgrey.svg
-[issues]: https://github.com/MiemieMethod/bedrock-addon-tutorial/issues
-[issues-shield]: https://img.shields.io/github/issues/MiemieMethod/bedrock-addon-tutorial
-[contributors]: https://github.com/MiemieMethod/bedrock-addon-tutorial/graphs/contributors
-[contributors-shield]: https://img.shields.io/github/contributors-anon/MiemieMethod/bedrock-addon-tutorial
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
