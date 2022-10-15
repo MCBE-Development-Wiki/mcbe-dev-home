@@ -27,7 +27,7 @@
 | --------------------- | -------------- | ------------------------------------------------------------ |
 | `name`                  | 字符串         | 这是该包将在Minecraft中出现的名字。它是必须字段。            |
 | `description`           | 字符串         | 这是对该包的简短描述。它会出现在游戏中包的名字的下面。我们建议保持在1-2行之内。 |
-| `uuid`                  | 字符串         | 这是一种特殊类型的标识符，它可以将此包与其他包惟一标识开来。UUID均写作`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`格式，其中每个`x`为一个十六进制值（0-9或a-f）。我们建议使用在线服务来生成它，以保证其唯一。 |
+| `uuid`                  | 字符串         | 这是一种特殊类型的标识符，它可以将此包与其他包惟一标识开来。UUID均写作`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`格式，其中每个`x`为一个十六进制值（0-9或a-f）。我们建议使用在线服务来生成它，以保证其唯一性。 |
 | `version`               | 向量 `[a, b, c]` | 这是你的包的版本，格式为`[majorVersion, minorVersion, revision]`。 该版本号主要在于之前导入过该包的旧版本时起作用。在导入新包时，如果新包版本更高，新包将取代旧包；如果版本相同或新包更低，则忽略该包的导入。 |
 | `min_engine_version`    | 字符串         | 这是该包编写适用于的游戏的最低版本。它是资源包和行为包的必须字段。该字段可以帮助游戏识别你的包是否需要向后兼容。在创建包时，你应该始终使用当前可用的最高版本。 |
 | `lock_template_options` | 布尔值         | 任何世界模板都必须选择这个选项。设置为`true`将阻止玩家修改游戏世界的选项。 |
@@ -53,17 +53,17 @@
 
 | 名称      | 描述                                             |
 | --------- | ------------------------------------------------ |
-| chemistry | 允许该包加入、更改或替换化学功能。               |
-| raytraced | 允许该包使用光线追踪功能并能够使用自定义着色器。 |
+| `chemistry` | 允许该包加入、更改或替换化学功能。               |
+| `raytraced` | 允许该包使用光线追踪功能并能够使用自定义着色器。 |
 
 #### `metadata`
 
 | 名称           | 类型     | 描述                                                         |
 | -------------- | -------- | ------------------------------------------------------------ |
-| authors        | 数组     | 该包的作者的名字                                             |
-| license        | 字符串   | 该包的许可                                                   |
-| generated_with | JSON对象 | 这里是用于生成<samp>manifest.json</samp>文件的工具。工具的名称是须满足`[a-zA-Z0-9_-]`且最多32个字符的字符串。工具的版本号是每个修改了该<samp>manifest.json</samp>文件的版本的语义化版本字符串。 |
-| url            | 字符串   | 你的包的主页网站                                             |
+| `authors`        | 数组     | 该包的作者的名字                                             |
+| `license`        | 字符串   | 该包的许可                                                   |
+| `generated_with` | JSON对象 | 这里是用于生成<samp>manifest.json</samp>文件的工具。工具的名称是须满足`[a-zA-Z0-9_-]`且最多32个字符的字符串。工具的版本号是每个修改了该<samp>manifest.json</samp>文件的版本的语义化版本字符串。 |
+| `url`            | 字符串   | 你的包的主页网站                                             |
 
 ### 示例
 
@@ -1044,46 +1044,46 @@
 
 | 方块状态名                 | 类型   | 有效值                                                       | 描述                                                         |
 | -------------------------- | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `active`                     | 布尔值 | `True`、`False`                                                  | Determines whether the block is active or not                |
-| `age`                        | 整数   | 0 - 15                                                       | Represents the age of the block                              |
-| `age_bit`                    | 布尔值 | `True`、`False`                                                  | Determines if saplings should grow                           |
-| `allow_underwater_bit`       | 布尔值 | `True`、`False`                                                  | Determines if a TNT block works underwater                   |
-| `attached_bit`               | 布尔值 | `True`、`False`                                                  | Determines if a tripwire is attached to another tripwire     |
-| `attachment`                 | 字符串 | `standing`、`hanging`、`side`、`multiple`                            | Determines the type of attachment used by a bell or grindstone block |
-| `bamboo_leaf_size`           | 字符串 | `no_leaves`、`small_leaves`、`large_leaves`                        | Determines the size of bamboo leaves                         |
-| `bamboo_stalk_thickness`     | 字符串 | `thin`、`thick`                                                  | Determines the thinkness of a bamboo stalk                   |
-| `big_dripleaf_tilt`          | 字符串 | `none`、`unstable`、`partial_tilt`、`full_tilt`                      | Determines the tilt state of big dripleaf block              |
-| `bite_counter`               | 整数   | 0 - 6                                                        | Tracks how many bites of cake have been taken                |
-| `brewing_stand_slot_a_bit`   | 布尔值 | `True`、`False`                                                  | Determines if a bottle is shown in slot a of the brewing stand |
-| `brewing_stand_slot_b_bit`   | 布尔值 | `True`、`False`                                                  | Determines if a bottle is shown in slot b of the brewing stand |
-| `brewing_stand_slot_c_bit`   | 布尔值 | `True`、`False`                                                  | Determines if a bottle is shown in slot c of the brewing stand |
-| `button_pressed_bit`         | 布尔值 | `True`、`False`                                                  | Determines if a button is in the pressed state or not        |
-| `candles`                    | 整数   | 0 - 3                                                        | Describes how many extra candles are in the same block space |
-| `cauldron_liquid`            | 字符串 | `water`、`lava`                                                  | Determines the type of liquid in a cauldron                  |
-| `chemistry_table_type`       | 字符串 | `compound_creator`、`material_reducer`、`element_constructor`、`lab_table` | Determines the type of the work benches that are behind the edu features toggle |
-| `chisel_type`                | 字符串 | `default`、`chiseled`、`lines`、`smooth`                             | Determines the pattern of quartz and purpur blocks           |
-| `cluster_count`              | 整数   | 0 - 3                                                        | Describes how many sea pickles are in a cluster              |
-| `color`                      | 字符串 | `white`、`orange`、`magenta`、`light_blue`、`yellow`、`lime`、`pink`、`gray`、`silver`、`cyan`、`purple`、`blue`、`brown`、`green`、`red`、`black` | Determines the color of a block like wool                    |
-| `color_bit`                  | 布尔值 | `True`、`False`                                                  | Sets if a torch is a colored torch block                     |
-| `conditional_bit`            | 布尔值 | `True`、`False`                                                  | Determines if a command block is conditional or not          |
-| `coral_color`                | 字符串 | `blue`、`pink`、`purple`、`red`、`yellow`、`blue dead`、`pink dead`、`red dead`、`yellow dead` | Determines the color of a coral block                        |
-| `coral_direction`            | 整数   | 0 - 3                                                        | Describes the rotation of coral fans                         |
-| `coral_hang_type_bit`        | 布尔值 | `True`、`False`                                                  | Describes the type of hanging for coral fans                 |
-| `covered_bit`                | 布尔值 | `True`、`False`                                                  | Describes if a top snow block is covering another block      |
-| `cracked_state`              | 字符串 | `no_cracks`、`cracked`、`max_cracked`                              | Determines the cracked state of turtle eggs                  |
-| `damage`                     | 字符串 | `undamaged`、`slightly_damaged`、`very_damaged`、`broken`            | Determines the state of damage of an Anvil                   |
-| `dead_bit`                   | 布尔值 | `True`、`False`                                                  | Determines if coral, coral fans, or sea pickles are dead     |
-| `direction`                  | 整数   | 0 - 3                                                        | Determines the North, South, East, and West direction of some blocks. 0 = South, 1 = West, 2 = North 3 = East |
-| `dirt_type`                  | 字符串 | `normal`、`coarse`                                               | Determines the dirt type of a block                          |
-| `disarmed_bit`               | 布尔值 | `True`、`False`                                                  | Determines if a tripwire is disarmed or not.                 |
-| `door_hinge_bit`             | 布尔值 | `True`、`False`                                                  | Determines if door's hinge is mirrored or not               |
-| `double_plant_type`          | 字符串 | `sunflower`、`syringa`、`grass`、`fern`、`rose`、`paeonia`               | Determines the type of a double plant block                  |
-| `drag_down`                  | 布尔值 | `True`、`False`                                                  | Describes if bubble columns drag entities down or pushes them up |
-| `dripstone_thickness`        | 字符串 | `tip`、`frustum`、`base`、`middle`、`merge`                            | Determines the type of a pointed dripstone block             |
-| `end_portal_eye_bit`         | 布尔值 | `True`、`False`                                                  | Determines if an end portal block has an Eye in it           |
-| `explode_bit`                | 布尔值 | `True`、`False`                                                  | Determines if a TNT block should start its explode sequence  |
-| `facing_direction`           | 整数   | 0 - 5                                                        | Determines the Up, Down, North, South, East, and West direction of some blocks. 0 = Down, 1 = Up, 2 = North, 3 = South, 4 = West, 5 = East |
-| `fill_level`                 | 整数   | 0 - 6                                                        | Determines fill level of a cauldron block                    |
+| `active`                     | 布尔值 | `True`、`False`                                                  | 决定方块激活与否                |
+| `age`                        | 整数   | 0 - 15                                                       | 代表方块的年龄                              |
+| `age_bit`                    | 布尔值 | `True`、`False`                                                  | 决定树苗是否需要生长                           |
+| `allow_underwater_bit`       | 布尔值 | `True`、`False`                                                  | 决定一个TNT方块是否在水下工作                   |
+| `attached_bit`               | 布尔值 | `True`、`False`                                                  | 决定一个绊线是否挂接到其他绊线上     |
+| `attachment`                 | 字符串 | `standing`、`hanging`、`side`、`multiple`                            | 决定一个钟或磨石方块使用的挂接类型 |
+| `bamboo_leaf_size`           | 字符串 | `no_leaves`、`small_leaves`、`large_leaves`                        | 决定竹叶的大小                         |
+| `bamboo_stalk_thickness`     | 字符串 | `thin`、`thick`                                                  | 决定竹秆的粗细                   |
+| `big_dripleaf_tilt`          | 字符串 | `none`、`unstable`、`partial_tilt`、`full_tilt`                      | 决定大型垂滴叶方块的倾斜状态              |
+| `bite_counter`               | 整数   | 0 - 6                                                        | 追踪蛋糕已经被咬了几口                |
+| `brewing_stand_slot_a_bit`   | 布尔值 | `True`、`False`                                                  | 决定酿造台的槽位A中是否应该渲染一个药水瓶 |
+| `brewing_stand_slot_b_bit`   | 布尔值 | `True`、`False`                                                  | 决定酿造台的槽位B中是否应该渲染一个药水瓶 |
+| `brewing_stand_slot_c_bit`   | 布尔值 | `True`、`False`                                                  | 决定酿造台的槽位C中是否应该渲染一个药水瓶 |
+| `button_pressed_bit`         | 布尔值 | `True`、`False`                                                  | 决定一个按钮是否处于按下的状态        |
+| `candles`                    | 整数   | 0 - 3                                                        | 描述在同一个方块空间内具有多少额外的蜡烛 |
+| `cauldron_liquid`            | 字符串 | `water`、`lava`                                                  | 决定一个炼药锅内药水的类型                  |
+| `chemistry_table_type`       | 字符串 | `compound_creator`、`material_reducer`、`element_constructor`、`lab_table` | 决定在教育版功能开关下工作台的类型 |
+| `chisel_type`                | 字符串 | `default`、`chiseled`、`lines`、`smooth`                             | 决定石英和紫珀块的图案           |
+| `cluster_count`              | 整数   | 0 - 3                                                        | 描述在一个簇内具有多少海泡菜              |
+| `color`                      | 字符串 | `white`、`orange`、`magenta`、`light_blue`、`yellow`、`lime`、`pink`、`gray`、`silver`、`cyan`、`purple`、`blue`、`brown`、`green`、`red`、`black` | 决定一个例如羊毛那样的方块的颜色                    |
+| `color_bit`                  | 布尔值 | `True`、`False`                                                  | 设置一个火把为一个染色火把                     |
+| `conditional_bit`            | 布尔值 | `True`、`False`                                                  | 决定一个命令方块是否为条件控制          |
+| `coral_color`                | 字符串 | `blue`、`pink`、`purple`、`red`、`yellow`、`blue dead`、`pink dead`、`red dead`、`yellow dead` | 决定一个珊瑚块的颜色                        |
+| `coral_direction`            | 整数   | 0 - 3                                                        | 描述珊瑚扇的旋转角                         |
+| `coral_hang_type_bit`        | 布尔值 | `True`、`False`                                                  | 描述珊瑚扇的悬挂类型                 |
+| `covered_bit`                | 布尔值 | `True`、`False`                                                  | 描述一个顶层雪方块是否覆盖着另一个方块      |
+| `cracked_state`              | 字符串 | `no_cracks`、`cracked`、`max_cracked`                              | 决定海龟蛋的开裂状态                  |
+| `damage`                     | 字符串 | `undamaged`、`slightly_damaged`、`very_damaged`、`broken`            | 决定一个铁砧的损坏状态                   |
+| `dead_bit`                   | 布尔值 | `True`、`False`                                                  | 决定珊瑚、珊瑚扇或海泡菜是否死亡     |
+| `direction`                  | 整数   | 0 - 3                                                        | 决定一些方块的北、南、东、西方向。0 = 南，1 = 西，2 = 北，3 = 东 |
+| `dirt_type`                  | 字符串 | `normal`、`coarse`                                               | 决定一个方块的泥土类型                          |
+| `disarmed_bit`               | 布尔值 | `True`、`False`                                                  | 决定一个绊线是否被解下。                 |
+| `door_hinge_bit`             | 布尔值 | `True`、`False`                                                  | 决定门枢是否镜像               |
+| `double_plant_type`          | 字符串 | `sunflower`、`syringa`、`grass`、`fern`、`rose`、`paeonia`               | 决定一个双层植物方块的类型                  |
+| `drag_down`                  | 布尔值 | `True`、`False`                                                  | 描述气泡柱是否将实体拽上或推下 |
+| `dripstone_thickness`        | 字符串 | `tip`、`frustum`、`base`、`middle`、`merge`                            | 决定一个滴水石锥方块的类型             |
+| `end_portal_eye_bit`         | 布尔值 | `True`、`False`                                                  | 决定一个末地传送门方块其中是否具有眼           |
+| `explode_bit`                | 布尔值 | `True`、`False`                                                  | 决定一个TNT方块是否应该启动它的爆炸程序  |
+| `facing_direction`           | 整数   | 0 - 5                                                        | 决定一些方块的上、下、北、南、东和西的方向。0 = 下、1 = 上、2 = 北、3 = 南、4 = 西、5 = 东 |
+| `fill_level`                 | 整数   | 0 - 6                                                        | 决定一个炼药锅方块的填充级别                    |
 | `flower_type`                | 字符串 | `poppy`、`orchid`、`allium`、`houstonia`、`tulip_red`、`tulip_orange`、`tulip_white`、`tulip_pink`、`oxeye`、`cornflower`、`lily_of_the_valley` | Determines the type of a flower block                        |
 | `ground_sign_direction`      | 整数   | 0 - 15                                                       | Describes the rotation of signs and standing banners         |
 | `growth`                     | 整数   | 0 - 7                                                        | Determines the growth level of crops                         |

@@ -2,6 +2,9 @@ import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from '@vuepress/theme-default'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { searchPlugin } from '@vuepress/plugin-search'
+import { getDirname, path } from '@vuepress/utils'
+
+const vuepressRoot = getDirname(import.meta.url)
 
 export default defineUserConfig({
     base: '/addons/',
@@ -11,6 +14,11 @@ export default defineUserConfig({
     head: [
         ['link', { rel: 'icon', href: '/addons/images/icon.svg' }]
     ],
+    alias: {
+        '@theme/HomeFooter.vue': path.resolve(vuepressRoot, './components/Footer.vue'),
+        '@theme/Page.vue': path.resolve(vuepressRoot, './components/Page.vue')
+    },
+  
     
     theme: defaultTheme({
         logo: '/images/icon.svg',
@@ -30,8 +38,8 @@ export default defineUserConfig({
                   children: [
                     '/official/addons.md',/*
                     '/official/animations.md',
-                    '/official/biomes.md',
-                    '/official/blocks.md',
+                    '/official/biomes.md',*/
+                    '/official/blocks.md',/*
                     '/official/entities.md',
                     '/official/entity_events.md',
                     '/official/entity_timeline_events.md',
@@ -51,27 +59,18 @@ export default defineUserConfig({
             {
               text: '数据驱动',
               children: [
-                /*
                 {
-                  text: '第0章 认识JS',
+                    text: '总纲',
+                    link: '/data-driven/',
+                    activeMatch: '/data-driven/$',
+                },
+                {
+                  text: '常规',
                   children: [
-                    '/advanced/sec0.1.md',
-                    '/advanced/sec0.2.md',
-                    '/advanced/sec0.3.md',
-                    '/advanced/sec0.4.md',
-                    '/advanced/sec0.5.md',
-                    '/advanced/sec0.6.md',
-                    '/advanced/sec0.7.md',
-                    '/advanced/sec0.8.md',
-                    '/advanced/sec0.9.md',
-                    '/advanced/sec0.10.md',
-                    '/advanced/sec0.11.md',
-                    '/advanced/sec0.12.md',
-                    '/advanced/sec0.13.md',
-                    '/advanced/sec0.14.md',
-                    '/advanced/sec0.15.md',
+                    '/data-driven/manifest.md',
                   ],
                 },
+                /*
                 {
                   text: '第1章 脚本使能的附加包',
                   children: [
@@ -126,6 +125,31 @@ export default defineUserConfig({
               ],
             },
             {
+              text: '杂项文档',
+              children: [
+                /*
+                {
+                  text: '深入',
+                  children: [
+                    '/zh/advanced/architecture.md',
+                    '/zh/advanced/plugin.md',
+                    '/zh/advanced/theme.md',
+                    {
+                      text: 'Cookbook',
+                      link: '/zh/advanced/cookbook/',
+                    },
+                  ],
+                },
+                {
+                  text: '其他资源',
+                  children: [
+                    '/zh/contributing.md',
+                  ],
+                },
+              */
+              ],
+            },
+            {
               text: '开发Wiki',
               link: 'https://wiki.bedev.cn/',
             },
@@ -141,8 +165,8 @@ export default defineUserConfig({
                   children: [
                     '/official/addons.md',/*
                     '/official/animations.md',
-                    '/official/biomes.md',
-                    '/official/blocks.md',
+                    '/official/biomes.md',*/
+                    '/official/blocks.md',/*
                     '/official/entities.md',
                     '/official/entity_events.md',
                     '/official/entity_timeline_events.md',
@@ -159,6 +183,16 @@ export default defineUserConfig({
                 },
             ],
             '/data-driven/': [
+                {
+                    text: '总纲',
+                    link: '/data-driven/',
+                },
+                {
+                  text: '常规',
+                  children: [
+                    '/data-driven/manifest.md',
+                  ],
+                },
                 /*{
                   text: '第0章 认识JS',
                   children: [
@@ -206,6 +240,91 @@ export default defineUserConfig({
                 },*/
             ],
             '/script-enabled/': [
+              /*{
+                text: 'VuePress 参考',
+                collapsible: true,
+                children: [
+                  '/zh/reference/cli.md',
+                  '/zh/reference/config.md',
+                  '/zh/reference/frontmatter.md',
+                  '/zh/reference/components.md',
+                  '/zh/reference/plugin-api.md',
+                  '/zh/reference/theme-api.md',
+                  '/zh/reference/client-api.md',
+                  '/zh/reference/node-api.md',
+                ],
+              },
+              {
+                text: '打包工具参考',
+                collapsible: true,
+                children: [
+                  '/zh/reference/bundler/vite.md',
+                  '/zh/reference/bundler/webpack.md',
+                ],
+              },
+              {
+                text: '默认主题参考',
+                collapsible: true,
+                children: [
+                  '/zh/reference/default-theme/config.md',
+                  '/zh/reference/default-theme/frontmatter.md',
+                  '/zh/reference/default-theme/components.md',
+                  '/zh/reference/default-theme/markdown.md',
+                  '/zh/reference/default-theme/styles.md',
+                  '/zh/reference/default-theme/extending.md',
+                ],
+              },
+              {
+                text: '官方插件参考',
+                collapsible: true,
+                children: [
+                  {
+                    text: '常用功能',
+                    children: [
+                      '/zh/reference/plugin/back-to-top.md',
+                      '/zh/reference/plugin/container.md',
+                      '/zh/reference/plugin/external-link-icon.md',
+                      '/zh/reference/plugin/google-analytics.md',
+                      '/zh/reference/plugin/medium-zoom.md',
+                      '/zh/reference/plugin/nprogress.md',
+                      '/zh/reference/plugin/register-components.md',
+                    ],
+                  },
+                  {
+                    text: '内容搜索',
+                    children: [
+                      '/zh/reference/plugin/docsearch.md',
+                      '/zh/reference/plugin/search.md',
+                    ],
+                  },
+                  {
+                    text: 'PWA',
+                    children: [
+                      '/zh/reference/plugin/pwa.md',
+                      '/zh/reference/plugin/pwa-popup.md',
+                    ],
+                  },
+                  {
+                    text: '语法高亮',
+                    children: [
+                      '/zh/reference/plugin/prismjs.md',
+                      '/zh/reference/plugin/shiki.md',
+                    ],
+                  },
+                  {
+                    text: '主题开发',
+                    children: [
+                      '/zh/reference/plugin/active-header-links.md',
+                      '/zh/reference/plugin/git.md',
+                      '/zh/reference/plugin/palette.md',
+                      '/zh/reference/plugin/theme-data.md',
+                      '/zh/reference/plugin/toc.md',
+                    ],
+                  },
+                ],
+              },*/
+            ],
+            '/misc/': [
               /*{
                 text: 'VuePress 参考',
                 collapsible: true,
