@@ -75,7 +75,7 @@
 
 ### NBT相关
 
-- [存档文件](./level.md)：在世界模板中为世界提供基本信息的文件，即<samp>level.dat</samp>。
+- [存档文件](./level.md)：在世界模板中为世界提供基本信息的文件，即<samp>level.dat</samp>。<!-- Level::initialize -->
 - [LevelDB](./leveldb.md)：在世界模板中提供世界的主体。<!-- ExternalFileLevelStorage::readLevelDataFromData -->
 - [结构](./structure.md)：提供一定大小的既定方块组合。
 

@@ -68,6 +68,7 @@ export default defineUserConfig({
                   text: '常规',
                   children: [
                     '/data-driven/manifest.md',
+                    '/data-driven/contents.md',
                   ],
                 },
                 /*
@@ -191,6 +192,7 @@ export default defineUserConfig({
                   text: '常规',
                   children: [
                     '/data-driven/manifest.md',
+                    '/data-driven/contents.md',
                   ],
                 },
                 /*{

@@ -468,11 +468,7 @@ array [3]
 
 ```json
 {
-    object "location"
-    {
-        int "fs" // 该包所处的文件系统
-        string "path" // 该包所处的路径
-    }
+    resource_location "location" // 该包的资源位置
     bool "upgraded" // 是否已成功升级
     array "warnings" // 解析和升级过程中产生的警告
     {
@@ -486,6 +482,15 @@ array [3]
 ```
 
 ### 子模式
+
+#### `resource_location`
+
+```json
+{
+    int "fs" // 该资源位置所处的文件系统
+    string "path" // 该资源位置的路径
+}
+```
 
 #### `pack_error`
 
