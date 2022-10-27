@@ -199,7 +199,7 @@
     }
     array "capabilities" : opt
     {
-        enumerated_value "<any array element>"<"chemistry", "raytraced", "">
+        enumerated_value "<any array element>"<"chemistry", "raytraced", "script_eval">
     }
     bool "has_education_metadata" : opt // 默认为`0`
 }
@@ -339,7 +339,7 @@
     }
     array "capabilities" : opt
     {
-        enumerated_value "<any array element>"<"chemistry", "raytraced", "">
+        enumerated_value "<any array element>"<"chemistry", "raytraced", "script_eval">
     }
     bool "has_education_metadata" : opt // 默认为`0`
 }
