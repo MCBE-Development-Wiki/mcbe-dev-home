@@ -4,14 +4,15 @@
 
 **清单文件**（**Manifest File**）位于每个附加包的根目录中，命名为`manifest.json`或`pack_manifest.json`。优先读取`manifest.json`，即若`manifest.json`存在且能正常读取，将忽略`pack_manifest.json`。
 
-## 版本化
+## 版本化与模式
 
-清单文件的版本化由文件中的`format_version`字段控制，目前该字段只允许`0`、`1`和`2`，其他版本将导致内容日志错误。`format_version`的值被称为该文件的**格式版本**（**Format Version**）。当前最新且推荐使用的格式版本为`2`。不同格式版本的清单文件格式分别如下：
+清单文件的版本化由文件中的`format_version`字段控制，目前该字段只允许`0`、`1`和`2`，其他版本将导致内容日志错误。`format_version`的值被称为该文件的**格式版本**（**Format Version**）。当前最新且推荐使用的格式版本为`2`。不同格式版本的清单文件格式的模式分别如下：
 
 :::: code-group
 ::: code-group-item 0
 
 ```json
+object
 {
     int "format_version" // 该文件的格式版本，此处应为`0`
     object "header"
@@ -69,6 +70,7 @@
 ::: code-group-item 1
 
 ```json
+object
 {
     int "format_version" // 该文件的格式版本，此处应为`1`
     object "header"
@@ -209,6 +211,7 @@
 ::: code-group-item 2
 
 ```json
+object
 {
     int "format_version" // 该文件的格式版本，此处应为`1`
     object "header"
@@ -407,6 +410,7 @@ array [3]
 玩家在包设置面板上进行更改后，该包的设置将会自动保存在`com.mojang/minecraftpe/pack_settings/pack_<uuid>.json`文件中，其中`<uuid>`是该包的UUID。该文件的格式为：
 
 ```json
+object
 {
     bool "<any control name>" : opt
     float "<any control name>" : opt
@@ -467,6 +471,7 @@ array [3]
 如果在解析和升级时出现错误，引擎将会在同目录处写入`upgrade_report.log`文件，该文件格式如下：
 
 ```json
+object
 {
     resource_location "location" // 该包的资源位置
     bool "upgraded" // 是否已成功升级
@@ -486,6 +491,7 @@ array [3]
 #### `resource_location`
 
 ```json
+object
 {
     int "fs" // 该资源位置所处的文件系统
     string "path" // 该资源位置的路径
@@ -495,6 +501,7 @@ array [3]
 #### `pack_error`
 
 ```json
+object
 {
     int "type" // 错误类型
     string "key" // 错误文本或本地化键名

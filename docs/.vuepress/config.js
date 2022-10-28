@@ -69,6 +69,8 @@ export default defineUserConfig({
                   children: [
                     '/data-driven/manifest.md',
                     '/data-driven/contents.md',
+                    '/data-driven/signatures.md',
+                    '/data-driven/education.md',
                   ],
                 },
                 /*
@@ -193,6 +195,8 @@ export default defineUserConfig({
                   children: [
                     '/data-driven/manifest.md',
                     '/data-driven/contents.md',
+                    '/data-driven/signatures.md',
+                    '/data-driven/education.md',
                   ],
                 },
                 /*{
