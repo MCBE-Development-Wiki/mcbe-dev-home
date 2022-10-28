@@ -6,7 +6,7 @@
 
 ## 教育元数据
 
-教育元数据文件位于附加包的根目录下，在[清单文件](./manifest.json)的`has_education_metadata`为`true`时被读取，用于展示该附加包的教育基本信息。
+教育元数据文件位于附加包的根目录下，在[清单文件](./manifest.md)的`has_education_metadata`为`true`时被读取，用于展示该附加包的教育基本信息。
 
 ### 模式
 
