@@ -81,7 +81,8 @@ export default defineUserConfig({
                   children: [
                     '/data-driven/texture/textures.md',
                     '/data-driven/texture/textures_list.md',
-                    '/data-driven/texture/atlas.md',
+                    '/data-driven/texture/texture_atlas.md',
+                    '/data-driven/texture/dynamic_textures.md',
                   ],
                 },
                 /*
@@ -218,7 +219,8 @@ export default defineUserConfig({
                   children: [
                     '/data-driven/texture/textures.md',
                     '/data-driven/texture/textures_list.md',
-                    '/data-driven/texture/atlas.md',
+                    '/data-driven/texture/texture_atlas.md',
+                    '/data-driven/texture/dynamic_textures.md',
                   ],
                 },
                 /*{

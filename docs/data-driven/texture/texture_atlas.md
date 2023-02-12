@@ -29,7 +29,7 @@ object
     string "texture_name" : opt // 图集页的资源名称，对于`item_texture.json`文件，请填写`atlas.item`，对于`terrain_texture.json`文件，请填写`atlas.terrain`，接受其他名称，但这将导致创建一个新的图集页，文件无法与原版的该图集定义合并，一些硬编码逻辑亦将失效，默认为`atlas.terrain`
     object "texture_data" // 该图集的纹理数据
     {
-        object "<texture reference name>" // 该图集中一个定义的纹理
+        object "<texture reference name>" // 该图集中一个定义的纹理图块及其名称
         {
             bool "quad" : opt // 默认为`false`
             element_collection "textures" // 该纹理的路径的合集
@@ -130,3 +130,7 @@ object // 六面式解析
 | `atlas.item`     | 物品图集，由数据驱动定义，具有一些硬编码逻辑，主要用于UI中的物品图标显示和手持物品纹理渲染 |
 | `atlas.terrain`  | 地形图集，由数据驱动定义，具有一些硬编码逻辑，主要用于方块纹理渲染 |
 | `atlas.banner`   | 旗帜图集，由硬编码定义                                       |
+
+## 外部链接
+
+- [Block Texture Variation - Bedrock Wiki](https://wiki.bedrock.dev/blocks/block-texture-variation.html)
