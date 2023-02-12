@@ -67,10 +67,21 @@ export default defineUserConfig({
                 {
                   text: '常规',
                   children: [
-                    '/data-driven/manifest.md',
-                    '/data-driven/contents.md',
-                    '/data-driven/signatures.md',
-                    '/data-driven/education.md',
+                    '/data-driven/general/manifest.md',
+                    '/data-driven/general/contents.md',
+                    '/data-driven/general/signatures.md',
+                    '/data-driven/general/education.md',
+                    '/data-driven/general/splashes.md',
+                    '/data-driven/general/loading_messages.md',
+                    '/data-driven/general/icons.md',
+                  ],
+                },
+                {
+                  text: '纹理',
+                  children: [
+                    '/data-driven/texture/textures.md',
+                    '/data-driven/texture/textures_list.md',
+                    '/data-driven/texture/atlas.md',
                   ],
                 },
                 /*
@@ -193,33 +204,24 @@ export default defineUserConfig({
                 {
                   text: '常规',
                   children: [
-                    '/data-driven/manifest.md',
-                    '/data-driven/contents.md',
-                    '/data-driven/signatures.md',
-                    '/data-driven/education.md',
-                  ],
-                },
-                /*{
-                  text: '第0章 认识JS',
-                  children: [
-                    '/advanced/sec0.1.md',
-                    '/advanced/sec0.2.md',
-                    '/advanced/sec0.3.md',
-                    '/advanced/sec0.4.md',
-                    '/advanced/sec0.5.md',
-                    '/advanced/sec0.6.md',
-                    '/advanced/sec0.7.md',
-                    '/advanced/sec0.8.md',
-                    '/advanced/sec0.9.md',
-                    '/advanced/sec0.10.md',
-                    '/advanced/sec0.11.md',
-                    '/advanced/sec0.12.md',
-                    '/advanced/sec0.13.md',
-                    '/advanced/sec0.14.md',
-                    '/advanced/sec0.15.md',
+                    '/data-driven/general/manifest.md',
+                    '/data-driven/general/contents.md',
+                    '/data-driven/general/signatures.md',
+                    '/data-driven/general/education.md',
+                    '/data-driven/general/splashes.md',
+                    '/data-driven/general/loading_messages.md',
+                    '/data-driven/general/icons.md',
                   ],
                 },
                 {
+                  text: '纹理',
+                  children: [
+                    '/data-driven/texture/textures.md',
+                    '/data-driven/texture/textures_list.md',
+                    '/data-driven/texture/atlas.md',
+                  ],
+                },
+                /*{
                   text: '第1章 脚本使能的附加包',
                   children: [
                     '/advanced/sec1.1.md',

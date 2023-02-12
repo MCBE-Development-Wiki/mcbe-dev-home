@@ -2,41 +2,50 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-nc-sa.svg" /></a>
 
-**清单文件**（**Manifest File**）位于每个附加包的根目录中，命名为`manifest.json`或`pack_manifest.json`。优先读取`manifest.json`，即若`manifest.json`存在且能正常读取，将忽略`pack_manifest.json`。
+**清单文件**（**Manifest File**）位于每个附加包的根目录中，文件名硬编码为`manifest.json`或`pack_manifest.json`。优先读取`manifest.json`，即若`manifest.json`存在且能正常读取，将忽略`pack_manifest.json`。
 
 ## 版本化与模式
 
 清单文件的版本化由文件中的`format_version`字段控制，目前该字段只允许`0`、`1`和`2`，其他版本将导致内容日志错误。`format_version`的值被称为该文件的**格式版本**（**Format Version**）。当前最新且推荐使用的格式版本为`2`。不同格式版本的清单文件格式的模式分别如下：
 
 :::: code-group
-::: code-group-item 0
+::: code-group-item 2
 
 ```json
 object
 {
-    int "format_version" // 该文件的格式版本，此处应为`0`
+    int "format_version" // 该文件的格式版本，此处应为`1`
     object "header"
     {
-        string "pack_id"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 该包的UUID，当解析内容出错时，引擎会报内容日志警告并使用`pack_id<pack_id>`的MD5杂凑值为种子通过一定算法生成新的该包的UUID，其中`<pack_id>`是该字段读到的真实值。当引擎最终使用的该包的UUID为`6989C411-4355-4756-9163-51C1DF5EF677`时，由于该UUID为保留的UUID，这会使该附加包从列表中隐藏
-        string "name" : opt // 当不存在时会报内容日志警告，并将引擎最终使用的该包的UUID设置为包的名字
+        string "uuid"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 该包的UUID，当解析内容出错时，引擎会报内容日志错误。当引擎最终使用的该包的UUID为`6989C411-4355-4756-9163-51C1DF5EF677`时，由于该UUID为保留的UUID，这会使该附加包从列表中隐藏
+        string "name" // 当不存在时引擎会报内容日志错误
         string "description" : opt
         bool "platform_locked" : opt // 默认为false
         enumerated_value "pack_scope"<"global", "world", "any"> : opt // 默认为`any`
-        bool "lock_template_options" : opt // 引擎中实际有三种值：未定义、启用和禁用，该字段不存在或解析出错时为未定义，`true`时为启用，`false`时为禁用
-        semver "packs_version" // 该语义化版本字段不可为`*`，当作为字符串解析内容出错时，报内容日志警告，并默认设置为`1.0.0`，其它情况下皆报内容日志警告，并默认设置为`0.0.0`
-        semver "min_engine_version" : opt // 该语义化版本字段只支持数组格式，对于资源包和行为包来说默认为`1.2.5`，若大于或等于`1.13.0`，会强行设置为`1.12.0`并报内容日志警告
-        semver "base_game_version" : opt // 该语义化版本字段无限制，默认为`1.13.0`。在当前格式版本下该字段未启用，有效的该字段值会导致内容日志警告
+        bool "lock_template_options" // 当该包是世界模板包时是必须字段，当不是世界模板包时有效的该字段值会导致内容日志警告。引擎中实际有三种值：未定义、启用和禁用，该字段不存在或解析出错时为未定义，`true`时为启用，`false`时为禁用
+        semver "version" // 该语义化版本字段不可为`*`，解析出错时报内容日志错误
+        semver "min_engine_version" // 当该包是资源包或行为包时是必须字段，当不是资源包且不是行为包时有效的该字段值会导致内容日志警告。该语义化版本字段只支持数组格式，且值必须大于或等于`1.13.0`，否则会报内容日志错误
+        semver "base_game_version" // 当该包是世界模板包时是必须字段，当不是世界模板包时有效的该字段值会导致内容日志警告。该语义化版本字段无限制，但不得大于当前游戏版本或小于`1.13.0`，否则会报内容日志错误
     }
-    array "modules" : opt // 若不存在，则会报内容日志警告，并默认添加一个`resource`模块，该模块的UUID是以`<name><description>`的MD5杂凑值为种子通过一定算法生成新UUID，其中`<name>`和`<description>`是该清单的标头中包的名称和描述，该模块的版本是`1.0.0`
+    array "modules" // 若不存在，则会报内容日志错误
     {
         object "<any array element>"
         {
-            string "uuid"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 当解析内容出错时，引擎会报内容日志警告并使用`pack_id<uuid>`的MD5杂凑值为种子通过一定算法生成新的该包的UUID，其中`<uuid>`是该字段读到的真实值。如果包的UUID和某个模块的UUID重复，会报内容日志警告并以包的UUID的MD5杂凑值为种子通过一定算法生成新的包的UUID
-            semver "version" // 该语义化版本字段不可为`*`，当作为字符串解析内容出错时，报内容日志警告，并默认设置为`1.0.0`，其它情况下皆报内容日志警告，并默认设置为`0.0.0`
+            string "uuid"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 该模块的UUID，当解析内容出错时，引擎会报内容日志错误。如果包的UUID和某个模块的UUID重复，会报内容日志警告并以包的UUID的MD5杂凑值为种子通过一定算法生成新的包的UUID
+            semver "version" // 该语义化版本字段不可为`*`，解析出错时报内容日志错误
             string "name" : opt
-            enumerated_value "type"<"invalid", "resourcepack", "resources", "data", "plugin", "client_data", "interface", "script", "client_script", "world_template", "worldtemplate", "skin_pack", "skinpack", "persona_piece", "addon", "mandatory"> : opt // 默认为`invalid`，`addon`、`mandatory`和其他非法字符串会导致内容日志警告
+            enumerated_value "type"<"invalid", "resourcepack", "resources", "data", "plugin", "client_data", "interface", "script", "client_script", "world_template", "worldtemplate", "skin_pack", "skinpack", "persona_piece"> // `invalid`和其他非法字符串会导致内容日志错误
             enumerated_value "language"<"javascript"> : opt
             string "entry" : opt
+        }
+    }
+    array "dependencies" : opt
+    {
+        object "<any array element>"
+        {
+            string "module_name" // 依赖的脚本API模块名，与`uuid`至少存在一个
+            string "uuid"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 依赖的包或模块的UUID，当解析内容出错时，引擎会报内容日志错误。
+            string "version" // 该语义化版本字段不可为`*`，解析出错时报内容日志错误
         }
     }
     object "metadata" : opt
@@ -55,7 +64,67 @@ object
             }
         }
     }
-    array "dependencies" : opt
+    array "settings" : opt
+    {
+        object "<any label control>"
+        {
+            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`label`
+            string "text" // 控件显示的文本
+            string "name" // 该控件的名字，用于存值
+        }
+        object "<any toggle control>"
+        {
+            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`toggle`
+            string "text"
+            string "name"
+            bool "default" // 默认值
+            enumerated_value "control_locked"<"none", "pregame", "ingame"> : opt // 何时锁定该控件
+        }
+        object "<any slider control>"
+        {
+            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`slider`
+            string "text"
+            string "name"
+            float "default"
+            float "min"
+            float "max"
+            float "step" : opt // 步长，默认为`1`
+            enumerated_value "control_locked"<"none", "pregame", "ingame"> : opt
+        }
+        object "<any step slider control>"
+        {
+            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`step_slider`
+            string "text"
+            string "name"
+            int "default"<0-*>
+            array "steps"
+            {
+                string "<any array element>" // 滑块中每步的文本
+            }
+            enumerated_value "control_locked"<"none", "pregame", "ingame"> : opt
+        }
+        object "<any dropdown control>"
+        {
+            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`dropdown`
+            string "text"
+            string "name"
+            int "default"<0-*>
+            array "options"
+            {
+                string "<any array element>" // 下拉菜单中每项的文本
+            }
+        }
+        object "<any text input control>"
+        {
+            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`input`
+            string "text"
+            string "name"
+            string "default"
+            string "placeholder" : opt // 当用户尚未输入文本时输入框底部的暗文本
+            enumerated_value "control_locked"<"none", "pregame", "ingame"> : opt
+        }
+    }
+    array "legacy_module_dependencies" : opt // 等价于`0`格式版本下的依赖
     {
         object "<any array element>"
         {
@@ -63,6 +132,20 @@ object
             string "version" : opt
         }
     }
+    array "subpacks" : opt
+    {
+        object "<any array element>"
+        {
+            string "folder_name"
+            string "name"
+            int "memory_tier" : opt // 默认为`0`
+        }
+    }
+    array "capabilities" : opt
+    {
+        enumerated_value "<any array element>"<"chemistry", "raytraced", "script_eval">
+    }
+    bool "has_education_metadata" : opt // 默认为`false`
 }
 ```
 
@@ -203,48 +286,39 @@ object
     {
         enumerated_value "<any array element>"<"chemistry", "raytraced", "script_eval">
     }
-    bool "has_education_metadata" : opt // 默认为`0`
+    bool "has_education_metadata" : opt // 默认为`false`
 }
 ```
 
 :::
-::: code-group-item 2
+::: code-group-item 0
 
 ```json
 object
 {
-    int "format_version" // 该文件的格式版本，此处应为`1`
+    int "format_version" // 该文件的格式版本，此处应为`0`
     object "header"
     {
-        string "uuid"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 该包的UUID，当解析内容出错时，引擎会报内容日志错误。当引擎最终使用的该包的UUID为`6989C411-4355-4756-9163-51C1DF5EF677`时，由于该UUID为保留的UUID，这会使该附加包从列表中隐藏
-        string "name" // 当不存在时引擎会报内容日志错误
+        string "pack_id"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 该包的UUID，当解析内容出错时，引擎会报内容日志警告并使用`pack_id<pack_id>`的MD5杂凑值为种子通过一定算法生成新的该包的UUID，其中`<pack_id>`是该字段读到的真实值。当引擎最终使用的该包的UUID为`6989C411-4355-4756-9163-51C1DF5EF677`时，由于该UUID为保留的UUID，这会使该附加包从列表中隐藏
+        string "name" : opt // 当不存在时会报内容日志警告，并将引擎最终使用的该包的UUID设置为包的名字
         string "description" : opt
         bool "platform_locked" : opt // 默认为false
         enumerated_value "pack_scope"<"global", "world", "any"> : opt // 默认为`any`
-        bool "lock_template_options" // 当该包是世界模板包时是必须字段，当不是世界模板包时有效的该字段值会导致内容日志警告。引擎中实际有三种值：未定义、启用和禁用，该字段不存在或解析出错时为未定义，`true`时为启用，`false`时为禁用
-        semver "version" // 该语义化版本字段不可为`*`，解析出错时报内容日志错误
-        semver "min_engine_version" // 当该包是资源包或行为包时是必须字段，当不是资源包且不是行为包时有效的该字段值会导致内容日志警告。该语义化版本字段只支持数组格式，且值必须大于或等于`1.13.0`，否则会报内容日志错误
-        semver "base_game_version" // 当该包是世界模板包时是必须字段，当不是世界模板包时有效的该字段值会导致内容日志警告。该语义化版本字段无限制，但不得大于当前游戏版本或小于`1.13.0`，否则会报内容日志错误
+        bool "lock_template_options" : opt // 引擎中实际有三种值：未定义、启用和禁用，该字段不存在或解析出错时为未定义，`true`时为启用，`false`时为禁用
+        semver "packs_version" // 该语义化版本字段不可为`*`，当作为字符串解析内容出错时，报内容日志警告，并默认设置为`1.0.0`，其它情况下皆报内容日志警告，并默认设置为`0.0.0`
+        semver "min_engine_version" : opt // 该语义化版本字段只支持数组格式，对于资源包和行为包来说默认为`1.2.5`，若大于或等于`1.13.0`，会强行设置为`1.12.0`并报内容日志警告
+        semver "base_game_version" : opt // 该语义化版本字段无限制，默认为`1.13.0`。在当前格式版本下该字段未启用，有效的该字段值会导致内容日志警告
     }
-    array "modules" // 若不存在，则会报内容日志错误
+    array "modules" : opt // 若不存在，则会报内容日志警告，并默认添加一个`resource`模块，该模块的UUID是以`<name><description>`的MD5杂凑值为种子通过一定算法生成新UUID，其中`<name>`和`<description>`是该清单的标头中包的名称和描述，该模块的版本是`1.0.0`
     {
         object "<any array element>"
         {
-            string "uuid"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 该模块的UUID，当解析内容出错时，引擎会报内容日志错误。如果包的UUID和某个模块的UUID重复，会报内容日志警告并以包的UUID的MD5杂凑值为种子通过一定算法生成新的包的UUID
-            semver "version" // 该语义化版本字段不可为`*`，解析出错时报内容日志错误
+            string "uuid"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 当解析内容出错时，引擎会报内容日志警告并使用`pack_id<uuid>`的MD5杂凑值为种子通过一定算法生成新的该包的UUID，其中`<uuid>`是该字段读到的真实值。如果包的UUID和某个模块的UUID重复，会报内容日志警告并以包的UUID的MD5杂凑值为种子通过一定算法生成新的包的UUID
+            semver "version" // 该语义化版本字段不可为`*`，当作为字符串解析内容出错时，报内容日志警告，并默认设置为`1.0.0`，其它情况下皆报内容日志警告，并默认设置为`0.0.0`
             string "name" : opt
-            enumerated_value "type"<"invalid", "resourcepack", "resources", "data", "plugin", "client_data", "interface", "script", "client_script", "world_template", "worldtemplate", "skin_pack", "skinpack", "persona_piece"> // `invalid`和其他非法字符串会导致内容日志错误
+            enumerated_value "type"<"invalid", "resourcepack", "resources", "data", "plugin", "client_data", "interface", "script", "client_script", "world_template", "worldtemplate", "skin_pack", "skinpack", "persona_piece", "addon", "mandatory"> : opt // 默认为`invalid`，`addon`、`mandatory`和其他非法字符串会导致内容日志警告
             enumerated_value "language"<"javascript"> : opt
             string "entry" : opt
-        }
-    }
-    array "dependencies" : opt
-    {
-        object "<any array element>"
-        {
-            string "module_name" // 依赖的脚本API模块名，与`uuid`至少存在一个
-            string "uuid"</[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}/> // 依赖的包或模块的UUID，当解析内容出错时，引擎会报内容日志错误。
-            string "version" // 该语义化版本字段不可为`*`，解析出错时报内容日志错误
         }
     }
     object "metadata" : opt
@@ -263,67 +337,7 @@ object
             }
         }
     }
-    array "settings" : opt
-    {
-        object "<any label control>"
-        {
-            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`label`
-            string "text" // 控件显示的文本
-            string "name" // 该控件的名字，用于存值
-        }
-        object "<any toggle control>"
-        {
-            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`toggle`
-            string "text"
-            string "name"
-            bool "default" // 默认值
-            enumerated_value "control_locked"<"none", "pregame", "ingame"> : opt // 何时锁定该控件
-        }
-        object "<any slider control>"
-        {
-            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`slider`
-            string "text"
-            string "name"
-            float "default"
-            float "min"
-            float "max"
-            float "step" : opt // 步长，默认为`1`
-            enumerated_value "control_locked"<"none", "pregame", "ingame"> : opt
-        }
-        object "<any step slider control>"
-        {
-            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`step_slider`
-            string "text"
-            string "name"
-            int "default"<0-*>
-            array "steps"
-            {
-                string "<any array element>" // 滑块中每步的文本
-            }
-            enumerated_value "control_locked"<"none", "pregame", "ingame"> : opt
-        }
-        object "<any dropdown control>"
-        {
-            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`dropdown`
-            string "text"
-            string "name"
-            int "default"<0-*>
-            array "options"
-            {
-                string "<any array element>" // 下拉菜单中每项的文本
-            }
-        }
-        object "<any text input control>"
-        {
-            enumerated_value "type"<"label", "toggle", "slider", "step_slider", "dropdown", "input"> // 控件类型，当前应为`input`
-            string "text"
-            string "name"
-            string "default"
-            string "placeholder" : opt // 当用户尚未输入文本时输入框底部的暗文本
-            enumerated_value "control_locked"<"none", "pregame", "ingame"> : opt
-        }
-    }
-    array "legacy_module_dependencies" : opt // 等价于`0`格式版本下的依赖
+    array "dependencies" : opt
     {
         object "<any array element>"
         {
@@ -331,29 +345,13 @@ object
             string "version" : opt
         }
     }
-    array "subpacks" : opt
-    {
-        object "<any array element>"
-        {
-            string "folder_name"
-            string "name"
-            int "memory_tier" : opt // 默认为`0`
-        }
-    }
-    array "capabilities" : opt
-    {
-        enumerated_value "<any array element>"<"chemistry", "raytraced", "script_eval">
-    }
-    bool "has_education_metadata" : opt // 默认为`0`
 }
 ```
 
 :::
 ::::
 
-### 子模式
-
-#### `semver`
+### `semver`
 
 ```json
 string <"*", /^(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*)(?:\-((?:(?:(?:(?:0[0-9]*[A-Za-z-])|[1-9A-Za-z-])[0-9A-Za-z-]*)|0)(?:\.(?:(?:(?:(?:0[0-9]*[A-Za-z-])|[1-9A-Za-z-])[0-9A-Za-z-]*)|0))*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?)?)?/>

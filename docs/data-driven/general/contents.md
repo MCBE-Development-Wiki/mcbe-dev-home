@@ -2,31 +2,13 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-nc-sa.svg" /></a>
 
-**内容文件**（**Contents File**）是提供了当前附加包的内容的列表的文件。附加包的**内容**（**Content**）指附加包内所有文件与文件夹的总和。该文件位于附加包的根目录中，和清单文件同级目录下，文件名为`contents.json`。该文件不是一个附加包所必须的。
+**内容文件**（**Contents File**）是提供了当前附加包的内容的列表的文件。附加包的**内容**（**Content**）指附加包内所有文件与文件夹的总和。该文件位于附加包的根目录中，和清单文件同级目录下，文件名硬编码为`contents.json`。该文件不是一个附加包所必须的。
 
 ## 版本化与模式
 
 内容文件的版本化由文件中的`version`字段控制，目前该字段理论允许`0`和`1`，实际上接受任何值。不存在该字段时默认按照为`0`处理。不同格式版本的内容文件格式的模式分别如下：
 
 :::: code-group
-::: code-group-item 0
-
-```json
-object
-{
-    int "version" : opt // 该文件的格式版本，此处应为`0`
-    array "content" : opt
-    {
-        object "<any array element>"
-        {
-            string "path"</.*?:.*/>
-            string "key"[32] : opt // AES256 CFB8 NoPadding秘钥
-        }
-    }
-}
-```
-
-:::
 ::: code-group-item 1
 
 ```json
@@ -38,6 +20,24 @@ object
         object "<any array element>"
         {
             string "path"</.*?:(?:[^\n|\r|/|\\]+[/\\]?)*/>
+            string "key"[32] : opt // AES256 CFB8 NoPadding秘钥
+        }
+    }
+}
+```
+
+:::
+::: code-group-item 0
+
+```json
+object
+{
+    int "version" : opt // 该文件的格式版本，此处应为`0`
+    array "content" : opt
+    {
+        object "<any array element>"
+        {
+            string "path"</.*?:.*/>
             string "key"[32] : opt // AES256 CFB8 NoPadding秘钥
         }
     }
