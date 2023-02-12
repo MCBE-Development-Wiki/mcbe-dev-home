@@ -42,3 +42,4 @@ array
 ## 外部链接
 
 - [Flipbook Textures - Bedrock Wiki](https://wiki.bedrock.dev/blocks/flipbook-textures.html)
+- [自定义物品贴图使用序列帧动画 - 我的世界开发者官网](https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/15-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B8%E6%88%8F%E5%86%85%E5%AE%B9/1-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%89%A9%E5%93%81/6-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%89%A9%E5%93%81%E8%B4%B4%E5%9B%BE%E4%BD%BF%E7%94%A8%E5%BA%8F%E5%88%97%E5%B8%A7%E5%8A%A8%E7%94%BB.html)
