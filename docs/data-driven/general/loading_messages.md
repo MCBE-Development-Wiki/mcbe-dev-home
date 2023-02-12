@@ -4,6 +4,14 @@
 
 **加载消息**（**Loading Message**），又称**加载提示**（**Loading Tip**），其文件位于资源包根目录下，文件名硬编码为`loading_messages.json`。
 
+<div class="treeview">
+  <ul>
+    <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>rp</code> 资源包<ul>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>loading_messages.json</code></li>
+    </ul></li>
+  </ul>
+</div>
+
 ## 模式
 
 ```json

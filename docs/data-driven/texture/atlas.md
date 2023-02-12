@@ -1,6 +1,19 @@
 # 图集定义文件
 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-nc-sa.svg" /></a>
+
 **图集定义文件**（**Atlas Definition File**）用于定义一个图集，位于资源包的`textures`文件夹内，共有两个文件，分别定义物品图集和地形图集，文件名分别硬编码为`item_texture.json`和`terrain_texture.json`。
+
+<div class="treeview">
+  <ul>
+    <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>rp</code> 资源包<ul>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>textures</code><ul>
+        <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>item_texture.json</code></li>
+        <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>terrain_texture.json</code></li>
+      </ul></li>
+    </ul></li>
+  </ul>
+</div>
 
 ## 模式
 
@@ -25,7 +38,6 @@ object
             bool "additive" : opt // 是否可叠加，默认为`false`
         }
     }
-    
 }
 ```
 
@@ -73,7 +85,7 @@ object
         color "a_color" : opt // A通道
     }
     float "weight" // 该变种的权重
-    texture_isotropic "isotropic" // 该变种的迷向性。
+    texture_isotropic "isotropic" // 该变种的迷向性
 }
 ```
 
@@ -96,17 +108,25 @@ array
 bool // 为各面开启迷向面，默认为`false`
 object // 三面式解析
 {
-    bool "up" : opt // 为顶面开启迷向面，默认为`false`
-    bool "down" : opt // 为底面开启迷向面，默认为`false`
+    bool "up" : opt // 为上面开启迷向面，默认为`false`
+    bool "down" : opt // 为下面开启迷向面，默认为`false`
     bool "side" // 为四个侧面开启迷向面，默认为`false`，如不存在该字段则按照六面式解析
 }
-object // 六面试解析
+object // 六面式解析
 {
-    bool "up" : opt // 为顶面开启迷向面，默认为`false`
-    bool "down" : opt // 为底面开启迷向面，默认为`false`
+    bool "up" : opt // 为上面开启迷向面，默认为`false`
+    bool "down" : opt // 为下面开启迷向面，默认为`false`
     bool "north" : opt // 为北面开启迷向面，默认为`false`
     bool "south" : opt // 为南面开启迷向面，默认为`false`
     bool "west" : opt // 为西面开启迷向面，默认为`false`
     bool "east" : opt // 为东面开启迷向面，默认为`false`
 }
 ```
+
+## 原版用例
+
+| 图集页的资源名称 | 描述                                                         |
+| ---------------- | ------------------------------------------------------------ |
+| `atlas.item`     | 物品图集，由数据驱动定义，具有一些硬编码逻辑，主要用于UI中的物品图标显示和手持物品纹理渲染 |
+| `atlas.terrain`  | 地形图集，由数据驱动定义，具有一些硬编码逻辑，主要用于方块纹理渲染 |
+| `atlas.banner`   | 旗帜图集，由硬编码定义                                       |

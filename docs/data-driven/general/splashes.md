@@ -4,6 +4,14 @@
 
 **闪烁标语**（**Splash**）文件位于资源包根目录下，文件名硬编码为`splashes.json`。
 
+<div class="treeview">
+  <ul>
+    <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>rp</code> 资源包<ul>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>splashes.json</code></li>
+    </ul></li>
+  </ul>
+</div>
+
 ## 模式
 
 ```json

@@ -4,6 +4,18 @@
 
 **清单文件**（**Manifest File**）位于每个附加包的根目录中，文件名硬编码为`manifest.json`或`pack_manifest.json`。优先读取`manifest.json`，即若`manifest.json`存在且能正常读取，将忽略`pack_manifest.json`。
 
+<div class="treeview">
+  <ul>
+    <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>pack</code> 附加包<ul>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>manifest.json</code></li>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>manifest_publish.json</code></li>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>manifest.json_old</code> 升级后的旧版清单文件备份</li>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>pack_manifest.json</code> 旧版清单文件名</li>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-16px -64px;background-size:128px auto;height:16px;width:16px"></span> <code>upgrade_report.log</code> 清单文件升级日志</li>
+    </ul></li>
+  </ul>
+</div>
+
 ## 版本化与模式
 
 清单文件的版本化由文件中的`format_version`字段控制，目前该字段只允许`0`、`1`和`2`，其他版本将导致内容日志错误。`format_version`的值被称为该文件的**格式版本**（**Format Version**）。当前最新且推荐使用的格式版本为`2`。不同格式版本的清单文件格式的模式分别如下：

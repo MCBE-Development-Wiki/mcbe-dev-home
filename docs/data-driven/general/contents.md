@@ -4,6 +4,14 @@
 
 **内容文件**（**Contents File**）是提供了当前附加包的内容的列表的文件。附加包的**内容**（**Content**）指附加包内所有文件与文件夹的总和。该文件位于附加包的根目录中，和清单文件同级目录下，文件名硬编码为`contents.json`。该文件不是一个附加包所必须的。
 
+<div class="treeview">
+  <ul>
+    <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>pack</code> 附加包<ul>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>contents.json</code></li>
+    </ul></li>
+  </ul>
+</div>
+
 ## 版本化与模式
 
 内容文件的版本化由文件中的`version`字段控制，目前该字段理论允许`0`和`1`，实际上接受任何值。不存在该字段时默认按照为`0`处理。不同格式版本的内容文件格式的模式分别如下：

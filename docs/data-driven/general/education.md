@@ -4,6 +4,14 @@
 
 **教育文件**（**Education File**）是指附加包内以`education.json`为文件名的文件，根据用途分为**教育元数据文件**（**Education Metadata File**）和**教育设置文件**（**Education Settings File**）两种。
 
+<div class="treeview">
+  <ul>
+    <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>wt</code> 世界模板<ul>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>education.json</code></li>
+    </ul></li>
+  </ul>
+</div>
+
 ## 教育元数据
 
 教育元数据文件位于附加包的根目录下，在[清单文件](./manifest.md)的`has_education_metadata`为`true`时被读取，用于展示该附加包的教育基本信息。
