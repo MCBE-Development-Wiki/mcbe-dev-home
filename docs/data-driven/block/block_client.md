@@ -33,22 +33,22 @@ object
         enumerated_value "blockshape"<"invisible", "block", "cross_texture", "torch", "fire", "water", "red_dust", "rows", "door", "ladder", "rail", "stairs", "fence", "lever", "cactus", "bed", "diode", "iron_fence", "stem", "vine", "fence_gate", "chest", "lilypad", "brewing_stand", "portal_frame", "cocoa", "tree", "cobblestone_wall", "double_plant", "flower_pot", "anvil", "dragon_egg", "structure_void", "block_half", "top_snow", "tripwire", "tripwire_hook", "cauldron", "repeater", "comparator", "hopper", "slime_block", "piston", "beacon", "chorus_plant", "chorus_flower", "end_portal", "end_rod", "skull", "facing_block", "command_block", "terracotta", "double_side_fence", "frame", "shulker_box", "doublesided_cross_texture", "doublesided_double_plant", "doublesided_rows", "element_block", "chemistry_table", "glow_stick", "coral_fan", "seagrass", "kelp", "trapdoor", "sea_pickle", "conduit", "turtle_egg", "bubble_column", "barrier", "camera_facing_sprite", "sign", "bamboo", "bamboo_sapling", "scaffolding", "grindstone", "bell", "lantern", "campfire", "lectern", "sweet_berry_bush", "cartography_table", "stonecutter_block", "chain", "sculk_sensor", "azalea", "flowering_azalea", "glow_frame", "glow_lichen", "sculk_vein", "sculk_shrieker", "micro_block", "netease_block_actor"> : opt // 该方块的方块形状，国际版暂时只能设置在原版方块上，中国版可以设置在所有自定义方块上，默认为`block`，其中`micro_block`和`netease_block_actor`仅中国版支持
         float "brightness_gamma" : opt // 亮度伽马值，默认为`0.0`
         enumerated_value "sound"<"normal", "gravel", "wood", "grass", "metal", "stone", "cloth", "glass", "sand", "snow", "ladder", "anvil", "slime", "silent", "itemframe", "turtle_egg", "bamboo", "bamboo_sapling", "lantern", "scaffolding", "sweet_berry_bush", "soul_sand", "soul_soil", "nylium", "roots", "fungus", "stem", "shroomlight", "basalt", "bone_block", "nether_brick", "netherrack", "nether_sprouts", "nether_wart", "nether_gold_ore", "ancient_debris", "honey_block", "honeycomb_block", "coral", "netherite", "lodestone", "chain", "vines", "powder_snow", "sculk_sensor", "dripstone_block", "spore_blossom", "azalea", "azalea_leaves", "copper", "big_dripleaf", "pointed_dripstone", "cave_vines", "hanging_roots", "moss_block", "moss_carpet", "deepslate", "deepslate_bricks", "amethyst_block", "amethyst_cluster", "large_amethyst_bud", "medium_amethyst_bud", "small_amethyst_bud", "tuff", "calcite", "candle", "comparator", "sculk", "sculk_catalyst", "sculk_shrieker", "sculk_vein", "froglight", "frog_spawn", "mud", "packed_mud", "mud_bricks", "mangrove_roots", "muddy_mangrove_roots", "default", "undefined"> : opt // 该方块的声音类型，默认为`normal`
-        string "netease_model" : opt // 该方块的自定义方块模型的赋命名空间标识符，仅中国支持
-        string "model_textures" : opt // 该方块的自定义方块模型使用的纹理，仅当`netease_model`和`model_item_texture`存在时解析，仅中国支持
-        array "model_textures" : opt // 该方块的自定义方块模型使用的所有纹理，仅当`netease_model`存在时解析，仅中国支持
+        string "netease_model" : opt // 该方块的自定义方块模型的赋命名空间标识符，仅中国版支持
+        string "model_textures" : opt // 该方块的自定义方块模型使用的纹理，仅当`netease_model`和`model_item_texture`存在时解析，仅中国版支持
+        array "model_textures" : opt // 该方块的自定义方块模型使用的所有纹理，仅当`netease_model`存在时解析，仅中国版支持
         {
             string "<any array element>"
         }
-        array "model_textures_descriptions" : opt // 该方块的自定义方块模型使用的纹理的实际分辨率，顺序应与`model_textures`中的顺序一致，仅当`netease_model`、`model_textures`和`model_item_texture`存在时解析，仅中国支持
-        string "model_item_texture" : opt // 该方块使用自定义方块模型后以物品形态手持使用的纹理，填写一个地形图集中的图块索引名，仅当`netease_model`和`model_textures`存在时解析，仅中国支持
-        object "client_entity" : opt // 该方块的自定义方块实体，仅中国支持
+        array "model_textures_descriptions" : opt // 该方块的自定义方块模型使用的纹理的实际分辨率，顺序应与`model_textures`中的顺序一致，仅当`netease_model`、`model_textures`和`model_item_texture`存在时解析，仅中国版支持
+        string "model_item_texture" : opt // 该方块使用自定义方块模型后以物品形态手持使用的纹理，填写一个地形图集中的图块索引名，仅当`netease_model`和`model_textures`存在时解析，仅中国版支持
+        object "client_entity" : opt // 该方块的自定义方块实体，仅中国版支持
         {
             string "identifier" // 方块实体所使用的客户端实体的赋命名空间标识符
             bool "hand_model_use_client_entity" : opt // 手持模型是否使用客户端实体模型进行渲染
             string "block_icon" : opt // 该方块使用自定义方块实体后作为物品形式时在UI中的图标使用的纹理，填写一个地形图集中的图块索引名，仅当`hand_model_use_client_entity`存在时解析
             bool "destoryed_textures" : opt // 该方块被破坏时粒子采用的纹理
         }
-        object "netease_particle_effects" : opt // 挂接在该方块的自定义方块实体上的粒子特效，仅中国支持
+        object "netease_particle_effects" : opt // 挂接在该方块的自定义方块实体上的粒子特效，仅中国版支持
         {
             object "<friendly name>" // 一个粒子特效，键名填写用于引用该粒子的短名称
             {
@@ -61,7 +61,7 @@ object
                 }
             }
         }
-        object "netease_frame_effects" : opt // 挂接在该方块的自定义方块实体上的序列帧特效，仅中国支持
+        object "netease_frame_effects" : opt // 挂接在该方块的自定义方块实体上的序列帧特效，仅中国版支持
         {
             object "<friendly name>" // 一个序列帧特效，键名填写用于引用该序列帧的短名称
             {
