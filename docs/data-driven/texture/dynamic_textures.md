@@ -22,12 +22,12 @@
 ```json
 array
 {
-    object "<any array element>" // 一个动态纹理
+    object "<any array element>" // 一个动态纹理定义
     {
         string "flipbook_texture" // 动态纹理的资源路径，纹理文件相对于资源包根目录的不具有扩展名的路径
         string "atlas_tile" // 该纹理文件在对应图集中的图块的引用名称
         int "atlas_index" : opt // 该动态纹理的图集索引值，即对应的方块变体序数，默认为`0`
-        int "replicate" : opt // 默认为`1`
+        int "replicate" : opt // 纹理文件中贴图的列数，默认为`1`
         int "ticks_per_frame" : opt // 每帧持续刻数，默认为`1`
         bool "blend_frames" : opt // 是否在各帧之间融合过渡，默认为`true`
         array "frames" : opt // 帧顺序，将按照该字段定义的顺序播放各帧，默认按照帧索引值从小到大播放

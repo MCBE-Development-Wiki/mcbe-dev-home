@@ -74,3 +74,7 @@ object
 ### 标头
 
 市场包加密算法下的内容文件一般具有256个字节的标头，用于确定该内容文件的身份，保证其保密性。此时该内容文件是处于加密状态下的，引擎会在确认该标头后去掉该标头并对剩余部分进行解密以获取原始内容。
+
+## 外部链接
+
+- [contents.json - Bedrock Wiki](https://wiki.bedrock.dev/concepts/contents.html)

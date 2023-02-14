@@ -104,24 +104,7 @@ array
 
 ### `texture_isotropic`
 
-```json
-bool // 为各面开启迷向面，默认为`false`
-object // 三面式解析
-{
-    bool "up" : opt // 为上面开启迷向面，默认为`false`
-    bool "down" : opt // 为下面开启迷向面，默认为`false`
-    bool "side" // 为四个侧面开启迷向面，默认为`false`，如不存在该字段则按照六面式解析
-}
-object // 六面式解析
-{
-    bool "up" : opt // 为上面开启迷向面，默认为`false`
-    bool "down" : opt // 为下面开启迷向面，默认为`false`
-    bool "north" : opt // 为北面开启迷向面，默认为`false`
-    bool "south" : opt // 为南面开启迷向面，默认为`false`
-    bool "west" : opt // 为西面开启迷向面，默认为`false`
-    bool "east" : opt // 为东面开启迷向面，默认为`false`
-}
-```
+@[code](../subschemas/texture_isotropic.json)
 
 ## 原版用例
 

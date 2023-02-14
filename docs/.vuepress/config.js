@@ -18,7 +18,6 @@ export default defineUserConfig({
         '@theme/HomeFooter.vue': path.resolve(vuepressRoot, './components/Footer.vue'),
         '@theme/Page.vue': path.resolve(vuepressRoot, './components/Page.vue')
     },
-  
     
     theme: defaultTheme({
         logo: '/images/icon.svg',
@@ -85,33 +84,12 @@ export default defineUserConfig({
                     '/data-driven/texture/dynamic_textures.md',
                   ],
                 },
-                /*
                 {
-                  text: '第1章 脚本使能的附加包',
+                  text: '方块',
                   children: [
-                    '/advanced/sec1.1.md',
-                    '/advanced/sec1.2.md',
-                    '/advanced/sec1.3.md',
-                    '/advanced/sec1.4.md',
-                    '/advanced/sec1.5.md',
+                    '/data-driven/block/block_client.md',
                   ],
                 },
-                {
-                  text: '第2章 进阶的数据驱动的附加包',
-                  children: [
-                    '/advanced/sec2.1.md',
-                    '/advanced/sec2.2.md',
-                    '/advanced/sec2.3.md',
-                    '/advanced/sec2.4.md',
-                  ],
-                },
-                {
-                  text: '第3章 数据与脚本的联动',
-                  children: [
-                    '/advanced/sec3.1.md',
-                  ],
-                },
-                */
               ],
             },
             {
@@ -142,6 +120,13 @@ export default defineUserConfig({
             {
               text: '杂项文档',
               children: [
+                {
+                  text: '枚举',
+                  children: [
+                    '/misc/enums/block_shape.md',
+                    '/misc/enums/block_sound_type.md',
+                  ],
+                },
                 /*
                 {
                   text: '深入',
@@ -223,31 +208,12 @@ export default defineUserConfig({
                     '/data-driven/texture/dynamic_textures.md',
                   ],
                 },
-                /*{
-                  text: '第1章 脚本使能的附加包',
+                {
+                  text: '方块',
                   children: [
-                    '/advanced/sec1.1.md',
-                    '/advanced/sec1.2.md',
-                    '/advanced/sec1.3.md',
-                    '/advanced/sec1.4.md',
-                    '/advanced/sec1.5.md',
+                    '/data-driven/block/block_client.md',
                   ],
                 },
-                {
-                  text: '第2章 进阶的数据驱动的附加包',
-                  children: [
-                    '/advanced/sec2.1.md',
-                    '/advanced/sec2.2.md',
-                    '/advanced/sec2.3.md',
-                    '/advanced/sec2.4.md',
-                  ],
-                },
-                {
-                  text: '第3章 数据与脚本的联动',
-                  children: [
-                    '/advanced/sec3.1.md',
-                  ],
-                },*/
             ],
             '/script-enabled/': [
               /*{
@@ -335,6 +301,13 @@ export default defineUserConfig({
               },*/
             ],
             '/misc/': [
+                {
+                  text: '枚举',
+                  children: [
+                    '/misc/enums/block_shape.md',
+                    '/misc/enums/block_sound_type.md',
+                  ],
+                },
               /*{
                 text: 'VuePress 参考',
                 collapsible: true,
