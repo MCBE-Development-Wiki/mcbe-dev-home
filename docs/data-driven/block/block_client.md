@@ -115,8 +115,8 @@ object // 六面式解析
 
 | 影响字段                               | 枚举类型 | 描述                                               |
 | -------------------------------------- | -------- | -------------------------------------------------- |
-| `format_version/<block name>/blockshape` | 硬枚举   | [方块形状](/misc/enums/block_shape.md)          |
-| `format_version/<block name>/sound`      | 硬枚举   | [方块声音类型](/misc/enums/block_sound_type.md) |
+| `<block name>/blockshape` | 硬枚举   | [方块形状](/misc/enums/block_shape.md)          |
+| `<block name>/sound`      | 硬枚举   | [方块声音类型](/misc/enums/block_sound_type.md) |
 
 ## 外部链接
 
