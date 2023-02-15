@@ -10,12 +10,12 @@
 
 ### 常规
 
-- [清单文件](./manifest.md)：为附加包提供定义的文件，即<samp>manifest.json</samp>或<samp>pack_manifest.json</samp>。<!-- PackManifestFactory::create -->
+- [清单文件](./general/manifest.md)：为附加包提供定义的文件，即<samp>manifest.json</samp>或<samp>pack_manifest.json</samp>。<!-- PackManifestFactory::create -->
 
 ### 渲染相关
 
-- [纹理](./texture.md)：提供游戏内一切可渲染事物的表面纹理。<!-- ResourcePack::generateTextureList --><!-- ResourcePack::getTexturesList -->
-- [纹理集](./texture_set.md)：提供同一个事物的一组纹理。
+- [纹理](./texture/textures.md)：提供游戏内一切可渲染事物的表面纹理。<!-- ResourcePack::generateTextureList --><!-- ResourcePack::getTexturesList -->
+- [纹理集](./texture/texture_set.md)：提供同一个事物的一组纹理。
 - [着色器](./shader.md)：提供纹理的具现方式。
 - [材质](./material.md)：提供着色器的具体可供调用实例。
 - [模型](./model.md)：为实体、方块或物品提供立体效果。
@@ -46,7 +46,7 @@
 
 ### 方块和物品相关
 
-- [方块客户端定义](./block_client.md)：定义方块客户端的文件，即<samp>blocks.json</samp>。
+- [方块客户端定义](./block/block_client.md)：定义方块客户端的文件，即<samp>blocks.json</samp>。
 - [方块服务端定义](./block_server.md)：定义方块的服务端。
 - [物品客户端定义](./item_client.md)：定义物品的客户端。
 - [物品客户端偏移量定义](./item_client_offset.md)：定义物品的客户端手持时的偏移量。

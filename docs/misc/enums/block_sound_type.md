@@ -2,6 +2,8 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-nc-sa.svg" /></a>
 
+> 枚举整理版本：1.19.40.23
+
 | 接口字符串             | 描述         |
 | ---------------------- | ------------ |
 | `normal`               | 正常         |

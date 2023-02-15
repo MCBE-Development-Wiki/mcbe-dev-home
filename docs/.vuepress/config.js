@@ -88,6 +88,7 @@ export default defineUserConfig({
                   text: '方块',
                   children: [
                     '/data-driven/block/block_client.md',
+                    '/data-driven/block/block_server.md',
                   ],
                 },
               ],
@@ -125,6 +126,10 @@ export default defineUserConfig({
                   children: [
                     '/misc/enums/block_shape.md',
                     '/misc/enums/block_sound_type.md',
+                    '/misc/enums/creative_category.md',
+                    '/misc/enums/creative_group.md',
+                    '/misc/enums/custom_block_type.md',
+                    '/misc/enums/custom_item_type.md',
                   ],
                 },
                 /*
@@ -212,6 +217,7 @@ export default defineUserConfig({
                   text: '方块',
                   children: [
                     '/data-driven/block/block_client.md',
+                    '/data-driven/block/block_server.md',
                   ],
                 },
             ],
@@ -306,6 +312,10 @@ export default defineUserConfig({
                   children: [
                     '/misc/enums/block_shape.md',
                     '/misc/enums/block_sound_type.md',
+                    '/misc/enums/creative_category.md',
+                    '/misc/enums/creative_group.md',
+                    '/misc/enums/custom_block_type.md',
+                    '/misc/enums/custom_item_type.md',
                   ],
                 },
               /*{
