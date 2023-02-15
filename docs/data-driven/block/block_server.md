@@ -129,6 +129,12 @@ object
 - 如果`category`为`all`或`none`，加入`is_hidden_in_commands`值为`true`，其余情况值为`false`；
 - 如果`category`为`all`、`commands`或`none`，在加入`is_hidden_in_commands`后将`category`的值重置为`none`。
 
+### `block_permutations`
+
+### `block_components`
+
+### `block_events`
+
 ## 枚举
 
 | 影响字段                               | 枚举类型 | 描述                                               |
