@@ -10,6 +10,9 @@
       <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>blocks</code><ul>
         <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>&lt;block_definition_file_name&gt;.json</code></li>
       </ul></li>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>netease_blocks</code> 会额外配合加载微缩方块相关定义 <span style="color:rgb(255, 85, 85);">仅中国版</span><ul>
+        <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>&lt;block_definition_file_name&gt;.json</code></li>
+      </ul></li>
     </ul></li>
   </ul>
 </div>
@@ -82,7 +85,7 @@ object
     string "material_type" : opt // 该方块的全局材质类型，仅中国版支持
     enumerated_value "base_block"<"mob_spawner", "portal", "custom_crop_block", "custom_heavy_block", "liquid", "flowing_liquid"> : opt // 该方块的基方块，仅中国版支持
     string "category" : opt // 该方块的中国版创造分类，支持填入中国版自定义的分类名，仅中国版支持
-    string "micro_size" : opt // 该微缩方块的微缩尺寸，格式为`<x> <y> <z>`，仅中国版支持
+    string "micro_size" : opt // 该微缩方块的微缩尺寸，格式为`<x> <y> <z>`，默认为`1 1 1`，仅中国版支持
 }
 ```
 
@@ -116,6 +119,12 @@ object
                 bool "<any array element>" // 布尔值方块状态枚举值
             }
         }
+    }
+    bool "register_to_creative_menu" : opt // 是否将该方块注册到创造模式物品栏，仅中国版支持
+    string "material_type" : opt // 该方块的全局材质类型，仅中国版支持
+    enumerated_value "base_block"<"mob_spawner", "portal", "custom_crop_block", "custom_heavy_block", "liquid", "flowing_liquid"> : opt // 该方块的基方块，仅中国版支持
+    string "category" : opt // 该方块的中国版创造分类，支持填入中国版自定义的分类名，仅中国版支持
+    string "micro_size" : opt // 该微缩方块的微缩尺寸，格式为`<x> <y> <z>`，默认为`1 1 1`，仅中国版支持
 }
 ```
 
