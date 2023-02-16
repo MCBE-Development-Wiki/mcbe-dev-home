@@ -204,9 +204,118 @@ object
 
 ### `block_permutations`
 
+::: warning 本段落存在需要实验性玩法的内容。影响的内容：
+`1.19.60` - `root`：假日创作者功能<br>
+`0.0.0` - `root`：假日创作者功能
+:::
+
+:::: code-group
+::: code-group-item 1.19.70
+
+```json
+array // 无需实验性玩法
+{
+    object "<any array element>" // 一个方块置换
+    {
+        molang "condition" // 该方块置换的条件，仅支持字符串形式的Molang表达式，其中目前在查询函数中仅支持使用`query.block_property`查询
+        block_components "components" // 当条件成立时该方块额外具有的组件
+    }
+}
+```
+
+:::
+::: code-group-item 1.19.60
+
+```json
+array // 若未开启“假日创作者功能”实验性玩法，该字段内所有内容都不会加载，且会触发内容日志通知
+{
+    object "<any array element>" // 一个方块置换
+    {
+        molang "condition" // 该方块置换的条件，其中目前在查询函数中仅支持使用`query.block_property`查询
+        block_components "components" // 当条件成立时该方块额外具有的组件
+    }
+}
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+array // 除非开启“假日创作者功能”实验性玩法，否则该字段内容虽然会被正常解析，但不会应用
+{
+    object "<any array element>" // 一个方块置换
+    {
+        molang "condition" // 该方块置换的条件，其中目前在查询函数中仅支持使用`query.block_property`查询
+        block_components "components" // 当条件成立时该方块额外具有的组件
+    }
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-/->`1.19.60`：无升级
+
+- 只有当开启“假日创作者功能”实验性玩法时整个字段才会被加载，否则会报内容日志通知。
+
+#### `1.19.60`-/->`1.19.70`：无升级
+
+- 整个字段被加载不再需要实验性玩法。
+- 整个字段所定义的内容发挥功能不再需要实验性玩法。
+
 ### `block_components`
 
+关于各方块组件的模式详见[组件](#组件)段落。
+
+:::: code-group
+::: code-group-item 0.0.0
+
+```json
+object
+{
+    some_component "<any block component>" : opt // 一个方块组件
+}
+```
+
+:::
+::::
+
+关于各方块组件的模式详见[组件](#组件)段落。
+
 ### `block_events`
+
+:::: code-group
+::: code-group-item 0.0.0
+
+```json
+object
+{
+    definition_event "<event name>" : opt // 一个方块事件，键名应填写一个赋命名空间标识符
+}
+```
+
+:::
+::::
+
+### `definition_event`
+ 
+::: warning 本段落存在需要实验性玩法的内容。影响的内容：
+`0.0.0` - `<any event responce>`：假日创作者功能
+:::
+
+:::: code-group
+::: code-group-item 0.0.0
+
+@[code](../subschemas/definition_event.json)
+
+:::
+::::
+
+关于各方块事件响应的模式详见[事件响应](#事件响应)段落。
+
+### `molang`
+ 
+@[code](../subschemas/molang.json)
 
 ## 枚举
 
@@ -216,3 +325,7 @@ object
 | `description/menu_category/group`<br/>`minecraft:creative_category/group` | 软枚举   | [创造分组](/misc/enums/creative_group.md) |
 | `description/material_type` | 硬枚举 | [方块材料类型](/misc/enums/material_type.md) <span style="color:rgb(255, 85, 85);">仅中国版</span> |
 | `description/base_block` | 硬枚举 | [自定义方块类型](/misc/enums/custom_block_type.md) <span style="color:rgb(255, 85, 85);">仅中国版</span> |
+
+## 组件
+
+## 事件响应

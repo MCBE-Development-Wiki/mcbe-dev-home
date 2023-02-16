@@ -1,0 +1,15 @@
+object
+{
+    float "weight" : opt // 该事件在事件合集的权重
+    molang "condition" : opt // 该事件触发需满足的条件
+    array "randomize" // 该事件作为一个枝节点定义一个随机事件合集，按照权重随机触发其中的一个事件
+    {
+        definition_event "<any array element>"
+    }
+    array "sequence" // 该事件作为一个枝节点定义一个序列事件合集，按顺序触发所有事件
+    {
+        definition_event "<any array element>"
+    }
+    definition_trigger "trigger" : opt // 触发另一个事件
+    event_response "<any event responce>" : opt // 一个事件响应，仅当开启“假日创作者功能”实验性玩法时会正常加载并应用
+}
