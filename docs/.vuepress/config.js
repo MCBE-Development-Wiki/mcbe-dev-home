@@ -2,6 +2,7 @@ import { defineUserConfig } from 'vuepress'
 import { defaultTheme } from '@vuepress/theme-default'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { searchPlugin } from '@vuepress/plugin-search'
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { getDirname, path } from '@vuepress/utils'
 
 const vuepressRoot = getDirname(import.meta.url)
@@ -438,6 +439,10 @@ export default defineUserConfig({
               },
             },
           }),
+        googleAnalyticsPlugin({
+            id: 'G-0BK58QNZVG',
+            debug: true,
+        }),
         '@vuepress/plugin-html-redirect',
     ]
 });

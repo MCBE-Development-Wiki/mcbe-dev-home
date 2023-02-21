@@ -662,6 +662,15 @@
     "@vuepress/utils" "2.0.0-beta.60"
     execa "^6.1.0"
 
+"@vuepress/plugin-google-analytics@^2.0.0-beta.60":
+  version "2.0.0-beta.60"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-2.0.0-beta.60.tgz#63607c276de87634b72fc12af6ba4ea986befd32"
+  integrity sha512-Uq8UiYh2O3pGG7CR+Me6DldumcIA8xnr6hPqjFdqpi4heQifepxxSY1VQcjGrhu1F/8m16O5MryKMaNtg12BqA==
+  dependencies:
+    "@vuepress/client" "2.0.0-beta.60"
+    "@vuepress/core" "2.0.0-beta.60"
+    "@vuepress/utils" "2.0.0-beta.60"
+
 "@vuepress/plugin-html-redirect@^0.1.4":
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-html-redirect/-/plugin-html-redirect-0.1.4.tgz#019a3d9ffe1af0f7421ca3b841b276a03a74b320"
