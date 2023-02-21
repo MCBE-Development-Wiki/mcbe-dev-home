@@ -193,9 +193,9 @@ object
 #### `0.0.0`-->`1.19.40`：升级
 
 - `menu_category`字段进行如下升级：
-  - 如果`category`不存在，加入`is_hidden_in_commands`，值为`false`;
-  - 如果`category`为空或解析失败，加入`is_hidden_in_commands`,值为`true`，并在加入`is_hidden_in_commands`后将`category`的值重置为`none`;
-  - 如果`category`为`all`或`none`，加入`is_hidden_in_commands`值为`true`，其余情况值为`false`；
+  - 如果`category`不存在，加入`is_hidden_in_commands`，值为`false`。
+  - 如果`category`为空或解析失败，加入`is_hidden_in_commands`,值为`true`，并在加入`is_hidden_in_commands`后将`category`的值重置为`none`。
+  - 如果`category`为`all`或`none`，加入`is_hidden_in_commands`值为`true`，其余情况值为`false`。
   - 如果`category`为`all`、`commands`或`none`，在加入`is_hidden_in_commands`后将`category`的值重置为`none`。
 
 #### `1.19.40`-/->`1.19.70`：无升级
@@ -262,6 +262,7 @@ array // 除非开启“假日创作者功能”实验性玩法，否则该字�
 
 - 整个字段被加载不再需要实验性玩法。
 - 整个字段所定义的内容发挥功能不再需要实验性玩法。
+- `<any array element>/condition`将只支持字符串类型的Molang表达式。
 
 ### `block_components`
 

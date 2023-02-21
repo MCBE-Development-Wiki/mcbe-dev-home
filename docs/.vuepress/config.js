@@ -47,8 +47,8 @@ export default defineUserConfig({
                     '/official/item.md',
                     '/official/molang.md',
                     '/official/paritcles.md',
-                    '/official/recipes.md',
-                    '/official/schemas.md',
+                    '/official/recipes.md',*/
+                    '/official/schemas.md',/*
                     '/official/texture_sets.md',
                     '/official/volumes.md',*/
                   ],
@@ -181,8 +181,8 @@ export default defineUserConfig({
                     '/official/item.md',
                     '/official/molang.md',
                     '/official/paritcles.md',
-                    '/official/recipes.md',
-                    '/official/schemas.md',
+                    '/official/recipes.md',*/
+                    '/official/schemas.md',/*
                     '/official/texture_sets.md',
                     '/official/volumes.md',*/
                   ],
