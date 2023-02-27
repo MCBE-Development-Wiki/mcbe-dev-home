@@ -227,7 +227,7 @@ array // 无需实验性玩法
 ::: code-group-item 1.19.60
 
 ```json
-array // 若未开启“假日创作者功能”实验性玩法，该字段内所有内容都不会加载，且会触发内容日志通知
+array // 若未开启“假日创作者功能”实验性玩法，该字段内所有内容都不会加载，且会触发内容日志错误
 {
     object "<any array element>" // 一个方块置换
     {
@@ -330,5 +330,217 @@ object
 | `description/base_block` | 硬枚举 | [自定义方块类型](/misc/enums/custom_block_type.md) <span style="color:rgb(255, 85, 85);">仅中国版</span> |
 
 ## 组件
+
+### `minecraft:destructible_by_mining`
+
+:::: code-group
+::: code-group-item 1.19.20
+
+```json
+bool "minecraft:destructible_by_mining" // 设置方块是否可以被挖掘
+object "minecraft:destructible_by_mining" // 设置方块的挖掘时间
+{
+    float "seconds_to_destroy"<0.0-*> // 基挖掘时间，即硬度值，实际挖掘时间将根据基挖掘时间进行计算得到
+}
+```
+
+:::
+::: code-group-item 1.19.10
+
+```json
+float "minecraft:destroy_time"<0.0-*> // 设置方块的基挖掘时间，即硬度值，实际挖掘时间将根据基挖掘时间进行计算得到
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:destroy_time" // 设置方块的挖掘时间
+{
+    float "destroy_time"<0.0-*> // 基挖掘时间，即硬度值，实际挖掘时间将根据基挖掘时间进行计算得到
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 将`destroy_time`字段的值赋给整个`minecraft:destroy_time`字段。
+  - 如果`destroy_time`不存在，将移除该组件，并报内容日志错误。
+
+#### `1.19.10`-->`1.19.20`：升级
+
+- 将`minecraft:destroy_time`字段的值赋给`seconds_to_destroy`字段。
+- 将`minecraft:destroy_time`字段设置为对象并将`seconds_to_destroy`字段置于其内。
+- 将`minecraft:destroy_time`字段重命名为`minecraft:destructible_by_mining`。
+
+### `minecraft:destructible_by_explosion`
+
+:::: code-group
+::: code-group-item 1.19.20
+
+```json
+bool "minecraft:destructible_by_explosion" // 设置方块是否可以被爆炸破坏
+object "minecraft:destructible_by_explosion" // 设置方块的爆炸抗性
+{
+    float "explosion_resistance"<0.0-*> // 基爆照抗性
+}
+```
+
+:::
+::: code-group-item 1.19.10
+
+```json
+float "minecraft:explosion_resistance"<0.0-*> // 设置方块的基爆照抗性
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:explosion_resistance" // 设置方块的爆炸抗性
+{
+    float "resistance"<0.0-*> // 基爆照抗性
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 将`resistance`字段的值赋给整个`minecraft:explosion_resistance`字段。
+  - 如果`resistance`不存在，将移除该组件，并报内容日志错误。
+
+#### `1.19.10`-->`1.19.20`：升级
+
+- 将`minecraft:explosion_resistance`字段的值赋给`explosion_resistance`字段。
+- 将`minecraft:explosion_resistance`字段设置为对象并将`explosion_resistance`字段置于其内。
+- 将`minecraft:destroy_time`字段重命名为`minecraft:destructible_by_explosion`。
+
+### `minecraft:flammable`
+
+### `minecraft:friction`
+
+### `minecraft:light_dampening`
+
+### `minecraft:light_emission`
+
+### `minecraft:map_color`
+
+### `minecraft:loot`
+
+### `minecraft:breathability`
+
+### `minecraft:creative_category`
+
+### `minecraft:rotation`
+
+### `minecraft:unit_cube`
+
+### `minecraft:queued_ticking`
+
+### `minecraft:random_ticking`
+
+### `minecraft:material_instances`
+
+### `minecraft:geometry`
+
+### `minecraft:collision_box`
+
+### `minecraft:crafting_table`
+
+### `minecraft:selection_box`
+
+### `minecraft:display_name`
+
+### `minecraft:placement_filter`
+
+### `minecraft:part_visibility`
+
+### `minecraft:unwalkable`
+
+### `minecraft:on_player_destroyed`
+
+### `minecraft:on_fall_on`
+
+### `minecraft:on_interact`
+
+### `minecraft:on_placed`
+
+### `minecraft:on_player_placing`
+
+### `minecraft:on_step_off`
+
+### `minecraft:on_step_on`
+
+### `netease:block_legacy`
+
+### `netease:tier`
+
+### `netease:aabb`
+
+### `netease:face_directional`
+
+### `netease:mob_spawner`
+
+### `netease:solid`
+
+### `netease:pathable`
+
+### `netease:portal`
+
+### `netease:connection`
+
+### `netease:block_entity`
+
+### `netease:random_tick`
+
+### `netease:redstone_property`
+
+### `netease:transform`
+
+### `netease:render_layer`
+
+### `netease:neighborchanged_sendto_script`
+
+### `netease:redstone`
+
+### `netease:listen_block_remove`
+
+### `netease:may_place_on`
+
+### `netease:fire_resistant`
+
+### `netease:liquid`
+
+### `netease:fall`
+
+### `netease:block_properties`
+
+### `netease:water_destory`
+
+### `netease:water_only`
+
+### `netease:water_source`
+
+### `netease:water_flow_source`
+
+### `netease:snow_recover_able`
+
+### `netease:can_built_over`
+
+### `netease:on_stand_on`
+
+### `netease:on_before_fall_on`
+
+### `netease:on_after_fall_on`
+
+### `netease:on_entity_inside`
+
+### `netease:on_step_on`
+
+### `netease:on_step_off`
 
 ## 事件响应
