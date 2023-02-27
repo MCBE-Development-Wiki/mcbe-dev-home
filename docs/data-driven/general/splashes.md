@@ -52,4 +52,4 @@ object
 
 ## 外部链接
 
-- [闪烁标语 - Minecraft Wiki](https://minecraft.fandom.com/zh/wiki/%E9%97%AA%E7%83%81%E6%A0%87%E8%AF%AD)
+- [闪烁标语](https://minecraft.fandom.com/zh/wiki/%E9%97%AA%E7%83%81%E6%A0%87%E8%AF%AD) - Minecraft Wiki

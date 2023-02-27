@@ -116,4 +116,4 @@ array
 
 ## 外部链接
 
-- [Block Texture Variation - Bedrock Wiki](https://wiki.bedrock.dev/blocks/block-texture-variation.html)
+- [Block Texture Variation](https://wiki.bedrock.dev/blocks/block-texture-variation.html) - Bedrock Wiki

@@ -338,9 +338,9 @@ object
 
 ```json
 bool "minecraft:destructible_by_mining" // 设置方块是否可以被挖掘
-object "minecraft:destructible_by_mining" // 设置方块的挖掘时间
+object "minecraft:destructible_by_mining" // 设置方块的摧毁时间
 {
-    float "seconds_to_destroy"<0.0-*> // 基挖掘时间，即硬度值，实际挖掘时间将根据基挖掘时间进行计算得到
+    float "seconds_to_destroy"<0.0-*> // 基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到
 }
 ```
 
@@ -348,16 +348,16 @@ object "minecraft:destructible_by_mining" // 设置方块的挖掘时间
 ::: code-group-item 1.19.10
 
 ```json
-float "minecraft:destroy_time"<0.0-*> // 设置方块的基挖掘时间，即硬度值，实际挖掘时间将根据基挖掘时间进行计算得到
+float "minecraft:destroy_time"<0.0-*> // 设置方块的基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到
 ```
 
 :::
 ::: code-group-item 0.0.0
 
 ```json
-object "minecraft:destroy_time" // 设置方块的挖掘时间
+object "minecraft:destroy_time" // 设置方块的摧毁时间
 {
-    float "destroy_time"<0.0-*> // 基挖掘时间，即硬度值，实际挖掘时间将根据基挖掘时间进行计算得到
+    float "destroy_time"<0.0-*> // 基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到
 }
 ```
 
@@ -374,6 +374,11 @@ object "minecraft:destroy_time" // 设置方块的挖掘时间
 - 将`minecraft:destroy_time`字段的值赋给`seconds_to_destroy`字段。
 - 将`minecraft:destroy_time`字段设置为对象并将`seconds_to_destroy`字段置于其内。
 - 将`minecraft:destroy_time`字段重命名为`minecraft:destructible_by_mining`。
+
+#### 相关链接
+
+- [手册:minecraft:destructible_by_mining](https://wiki.mcbe-dev.net/-/645) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:destructible_by_mining](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_destructible_by_mining) - Microsoft Learn
 
 ### `minecraft:destructible_by_explosion`
 
@@ -419,7 +424,50 @@ object "minecraft:explosion_resistance" // 设置方块的爆炸抗性
 - 将`minecraft:explosion_resistance`字段设置为对象并将`explosion_resistance`字段置于其内。
 - 将`minecraft:destroy_time`字段重命名为`minecraft:destructible_by_explosion`。
 
+#### 相关链接
+
+- [手册:minecraft:destructible_by_explosion](https://wiki.mcbe-dev.net/-/647) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:destructible_by_explosion](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_destructible_by_explosion) - Microsoft Learn
+
 ### `minecraft:flammable`
+
+:::: code-group
+::: code-group-item 1.19.10
+
+```json
+bool "minecraft:flammable" // 设置方块是否可以自然地开始燃烧
+object "minecraft:flammable" // 设置方块的引燃和烧毁修饰符
+{
+    int "catch_chance_modifier"<0-*> : opt // 方块的引燃几率，默认为`5`
+    int "destroy_chance_modifier"<0-*> : opt // 方块的烧毁几率，默认为`20`
+}
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:flammable" // 设置方块的引燃和烧毁修饰符
+{
+    int "flame_odds"<0-*> // 方块的引燃几率
+    int "burn_odds"<0-*> // 方块的烧毁几率
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 将`flame_odds`字段重命名为`catch_chance_modifier`。
+  - 如果`flame_odds`不存在，将移除该组件，并报内容日志错误。
+- 将`burn_odds`字段重命名为`destroy_chance_modifier`。
+  - 如果`burn_odds`不存在，将移除该组件，并报内容日志错误。
+
+#### 相关链接
+
+- [手册:minecraft:flammable](https://wiki.mcbe-dev.net/-/646) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:flammable](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_flammable) - Microsoft Learn
 
 ### `minecraft:friction`
 

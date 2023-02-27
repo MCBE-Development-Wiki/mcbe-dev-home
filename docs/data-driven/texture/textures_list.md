@@ -37,4 +37,4 @@ array
 
 ## 外部链接
 
-- [textures_list.json - Bedrock Wiki](https://wiki.bedrock.dev/concepts/textures-list.html)
+- [textures_list.json](https://wiki.bedrock.dev/concepts/textures-list.html) - Bedrock Wiki

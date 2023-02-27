@@ -30,4 +30,4 @@ object
 
 ## 外部链接
 
-- [加载提示 - Minecraft Wiki](https://minecraft.fandom.com/zh/wiki/%E5%8A%A0%E8%BD%BD%E6%8F%90%E7%A4%BA)
+- [加载提示](https://minecraft.fandom.com/zh/wiki/%E5%8A%A0%E8%BD%BD%E6%8F%90%E7%A4%BA) - Minecraft Wiki

@@ -77,4 +77,4 @@ object
 
 ## 外部链接
 
-- [contents.json - Bedrock Wiki](https://wiki.bedrock.dev/concepts/contents.html)
+- [contents.json](https://wiki.bedrock.dev/concepts/contents.html) - Bedrock Wiki
