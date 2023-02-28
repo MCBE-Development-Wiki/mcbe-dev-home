@@ -25,4 +25,4 @@
 | `.png`              | PNG文件                                                      |
 | `.jpg`              | JPG文件                                                      |
 | `.jpeg`             | JPEG文件                                                     |
-| `.ktx`              | KTX文件，<span style="color:rgb(255, 85, 85);">仅中国版支持</span> |
+| `.ktx`              | KTX文件 <Badge type="danger" text="仅中国版" vertical="super" /> |

@@ -94,5 +94,5 @@
 | `glow_frame`                     | 荧光物品展示框                                               |
 | `glow_lichen` `sculk_vein`       | 发光地衣、幽匿脉络                                           |
 | `sculk_shrieker`                 | 幽匿尖啸体                                                   |
-| `micro_block`                    | 微缩方块‌ ‌<span style="color:rgb(255, 85, 85);">仅中国版</span> |
-| `netease_block_actor`            | 具有方块实体的方块‌ <span style="color:rgb(255, 85, 85);">仅中国版</span> |
+| `micro_block`                    | 微缩方块 <Badge type="danger" text="仅中国版" vertical="super" /> |
+| `netease_block_actor`            | 具有方块实体的方块‌ <Badge type="danger" text="仅中国版" vertical="super" /> |

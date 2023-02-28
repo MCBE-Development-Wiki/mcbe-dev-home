@@ -2,14 +2,14 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-nc-sa.svg" /></a>
 
-**动态纹理**（**Dynamic Texture**），又称**动画纹理**（**Animated Texture**）、**滴答纹理**（**Ticking Texture**）和**翻书纹理**（**Flipbook Texture**），其定义文件用于定义纹理动画，位于资源包的`textures`文件夹内，共有两个文件，分别定义方块和物品（<span style="color:rgb(255, 85, 85);">仅中国版</span>）的动态纹理，文件名分别硬编码为`flipbook_textures.json`和`flipbook_textures_items.json`。其定义的这种纹理动画被称为**翻书动画**（**Flipbook Animation**），<span style="color:rgb(255, 85, 85);">在中国版亦称作<strong>序列帧动画</strong>（<strong>Frame Animation</strong>）</span>。
+**动态纹理**（**Dynamic Texture**），又称**动画纹理**（**Animated Texture**）、**滴答纹理**（**Ticking Texture**）和**翻书纹理**（**Flipbook Texture**），其定义文件用于定义纹理动画，位于资源包的`textures`文件夹内，共有两个文件，分别定义方块 <Badge type="tip" text="通用" vertical="super" /> 和物品 <Badge type="danger" text="仅中国版" vertical="super" /> 的动态纹理，文件名分别硬编码为`flipbook_textures.json`和`flipbook_textures_items.json`。其定义的这种纹理动画被称为**翻书动画**（**Flipbook Animation**），<span style="color:rgb(255, 85, 85);">在中国版亦称作<strong>序列帧动画</strong>（<strong>Frame Animation</strong>）</span>。
 
 <div class="treeview">
   <ul>
     <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>rp</code> 资源包<ul>
       <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>textures</code><ul>
         <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>flipbook_textures.json</code></li>
-        <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>flipbook_textures_items.json</code> <span style="color:rgb(255, 85, 85);">仅中国版</span></li>
+        <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>flipbook_textures_items.json</code> <Badge type="danger" text="仅中国版" vertical="super" /></li>
       </ul></li>
     </ul></li>
   </ul>

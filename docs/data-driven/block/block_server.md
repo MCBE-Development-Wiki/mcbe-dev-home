@@ -2,7 +2,7 @@
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://mirrors.creativecommons.org/presskit/buttons/80x15/svg/by-nc-sa.svg" /></a>
 
-**方块服务端定义文件**（**Block Server Definition File**）用于定义各方块的服务端属性，位于行为包的`blocks`或`netease_blocks`（<span style="color:rgb(255, 85, 85);">仅中国版</span>）文件夹内，文件名可以自定义，其后缀名通常写为`.json`。注意，不同包中的同名的方块定义文件会出现相互覆盖的情况，请在命名时尽可能独一无二。
+**方块服务端定义文件**（**Block Server Definition File**）用于定义各方块的服务端属性，位于行为包的`blocks` <Badge type="tip" text="通用" vertical="super" /> 或`netease_blocks` <Badge type="danger" text="仅中国版" vertical="super" /> 文件夹内，文件名可以自定义，其后缀名通常写为`.json`。注意，不同包中的同名的方块定义文件会出现相互覆盖的情况，请在命名时尽可能独一无二。
 
 <div class="treeview">
   <ul>
@@ -10,7 +10,7 @@
       <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>blocks</code><ul>
         <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>&lt;block_definition_file_name&gt;.json</code></li>
       </ul></li>
-      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>netease_blocks</code> 会额外配合加载微缩方块相关定义 <span style="color:rgb(255, 85, 85);">仅中国版</span><ul>
+      <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-112px -128px;background-size:128px auto;height:16px;width:16px"></span> <code>netease_blocks</code> 会额外配合加载微缩方块相关定义 <Badge type="danger" text="仅中国版" vertical="super" /><ul>
         <li><span class="sprite" style="background-image:url(https://wiki.mcbe-dev.net/w/images/9/92/FileCSS.png?format=original);background-position:-0px -80px;background-size:128px auto;height:16px;width:16px"></span> <code>&lt;block_definition_file_name&gt;.json</code></li>
       </ul></li>
     </ul></li>
@@ -301,7 +301,7 @@ object
 ::::
 
 ### `definition_event`
- 
+
 ::: warning 本段落存在需要实验性玩法的内容。影响的内容：
 `0.0.0` - `<any event responce>`：假日创作者功能
 :::
@@ -326,8 +326,8 @@ object
 | -------------------------------------- | -------- | -------------------------------------------------- |
 | `description/menu_category/category`<br>`minecraft:creative_category/category` | 硬枚举   | [创造分类](/misc/enums/creative_categorymd) |
 | `description/menu_category/group`<br/>`minecraft:creative_category/group` | 软枚举   | [创造分组](/misc/enums/creative_group.md) |
-| `description/material_type` | 硬枚举 | [方块材料类型](/misc/enums/material_type.md) <span style="color:rgb(255, 85, 85);">仅中国版</span> |
-| `description/base_block` | 硬枚举 | [自定义方块类型](/misc/enums/custom_block_type.md) <span style="color:rgb(255, 85, 85);">仅中国版</span> |
+| `description/material_type` | 硬枚举 | [方块材料类型](/misc/enums/material_type.md) <Badge type="danger" text="仅中国版" vertical="super" /> |
+| `description/base_block` | 硬枚举 | [自定义方块类型](/misc/enums/custom_block_type.md) <Badge type="danger" text="仅中国版" vertical="super" /> |
 
 ## 组件
 
@@ -337,10 +337,10 @@ object
 ::: code-group-item 1.19.20
 
 ```json
-bool "minecraft:destructible_by_mining" // 设置方块是否可以被挖掘
-object "minecraft:destructible_by_mining" // 设置方块的摧毁时间
+bool "minecraft:destructible_by_mining" : opt // 设置方块是否可以被挖掘，默认为`true`
+object "minecraft:destructible_by_mining" : opt // 设置方块的摧毁时间
 {
-    float "seconds_to_destroy"<0.0-*> // 基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到
+    float "seconds_to_destroy"<0.0-*> : opt // 基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到，默认为`0.0`
 }
 ```
 
@@ -348,14 +348,14 @@ object "minecraft:destructible_by_mining" // 设置方块的摧毁时间
 ::: code-group-item 1.19.10
 
 ```json
-float "minecraft:destroy_time"<0.0-*> // 设置方块的基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到
+float "minecraft:destroy_time"<0.0-*> : opt // 设置方块的基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到，默认为`0.0`
 ```
 
 :::
 ::: code-group-item 0.0.0
 
 ```json
-object "minecraft:destroy_time" // 设置方块的摧毁时间
+object "minecraft:destroy_time" : opt // 设置方块的摧毁时间
 {
     float "destroy_time"<0.0-*> // 基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到
 }
@@ -386,10 +386,10 @@ object "minecraft:destroy_time" // 设置方块的摧毁时间
 ::: code-group-item 1.19.20
 
 ```json
-bool "minecraft:destructible_by_explosion" // 设置方块是否可以被爆炸破坏
-object "minecraft:destructible_by_explosion" // 设置方块的爆炸抗性
+bool "minecraft:destructible_by_explosion" : opt // 设置方块是否可以被爆炸破坏，默认为`true`
+object "minecraft:destructible_by_explosion" : opt // 设置方块的爆炸抗性
 {
-    float "explosion_resistance"<0.0-*> // 基爆照抗性
+    float "explosion_resistance"<0.0-*> : opt // 基爆照抗性，默认为`0.0`
 }
 ```
 
@@ -397,14 +397,14 @@ object "minecraft:destructible_by_explosion" // 设置方块的爆炸抗性
 ::: code-group-item 1.19.10
 
 ```json
-float "minecraft:explosion_resistance"<0.0-*> // 设置方块的基爆照抗性
+float "minecraft:explosion_resistance"<0.0-*> : opt // 设置方块的基爆照抗性，默认为`0.0`
 ```
 
 :::
 ::: code-group-item 0.0.0
 
 ```json
-object "minecraft:explosion_resistance" // 设置方块的爆炸抗性
+object "minecraft:explosion_resistance" : opt // 设置方块的爆炸抗性
 {
     float "resistance"<0.0-*> // 基爆照抗性
 }
@@ -435,8 +435,8 @@ object "minecraft:explosion_resistance" // 设置方块的爆炸抗性
 ::: code-group-item 1.19.10
 
 ```json
-bool "minecraft:flammable" // 设置方块是否可以自然地开始燃烧
-object "minecraft:flammable" // 设置方块的引燃和烧毁修饰符
+bool "minecraft:flammable" : opt // 设置方块是否可以自然地开始燃烧
+object "minecraft:flammable" : opt // 设置方块的引燃和烧毁修饰符
 {
     int "catch_chance_modifier"<0-*> : opt // 方块的引燃几率，默认为`5`
     int "destroy_chance_modifier"<0-*> : opt // 方块的烧毁几率，默认为`20`
@@ -447,7 +447,7 @@ object "minecraft:flammable" // 设置方块的引燃和烧毁修饰符
 ::: code-group-item 0.0.0
 
 ```json
-object "minecraft:flammable" // 设置方块的引燃和烧毁修饰符
+object "minecraft:flammable" : opt // 设置方块的引燃和烧毁修饰符
 {
     int "flame_odds"<0-*> // 方块的引燃几率
     int "burn_odds"<0-*> // 方块的烧毁几率
@@ -471,9 +471,136 @@ object "minecraft:flammable" // 设置方块的引燃和烧毁修饰符
 
 ### `minecraft:friction`
 
+:::: code-group
+::: code-group-item 1.19.20
+
+```json
+float "minecraft:friction"<0.0-0.9> : opt // 设置方块的地面摩擦，默认为`0.4`
+```
+
+:::
+::: code-group-item 1.19.10
+
+```json
+float "minecraft:friction"<0.1-1.0> : opt // 设置实体在方块上运动时的摩擦因子，默认为`0.6`
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:friction" : opt // 设置实体在方块上运动时的摩擦因子
+{
+    int "friction"<0.1-1.0> // 摩擦因子
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 将`friction`字段的值赋给整个`minecraft:friction`字段。
+  - 如果`friction`不存在，将移除该组件，并报内容日志错误。
+
+#### `1.19.10`-->`1.19.20`：升级
+
+- 用`1.0`减去`minecraft:friction`字段的值再赋给`minecraft:friction`字段。
+
+#### 相关链接
+
+- [手册:minecraft:friction](https://wiki.mcbe-dev.net/-/648) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:friction](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_friction) - Microsoft Learn
+
 ### `minecraft:light_dampening`
 
+:::: code-group
+::: code-group-item 1.19.40
+
+```json
+int "minecraft:light_dampening"<0-15> : opt // 设置方块的光照隔除度，默认为`15`
+```
+
+:::
+::: code-group-item 1.19.10
+
+```json
+int "minecraft:block_light_filter"<0-15> : opt // 设置方块的光照隔除度，默认为`15`
+```
+
+:::
+::: code-group-item 1.18.0
+
+```json
+object "minecraft:block_light_filter" : opt // 设置方块的光照隔除度
+{
+    int "filter_level"<0-15> // 光照隔除度
+}
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:block_light_absorption" : opt // 设置方块的光照隔除度
+{
+    float "filter_level"<0.0-16.0> // 光照隔除度
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.18.0`：升级
+
+- 将`filter_level`约束在`0`-`15`范围之内并设置为整数。
+- 将`minecraft:block_light_absorption`字段重命名为`minecraft:block_light_filter`。
+
+#### `1.18.0`-->`1.19.10`：升级
+
+- 将`filter_level`字段的值赋给整个`minecraft:block_light_filter`字段。
+  - 如果`filter_level`不存在，将移除该组件，并报内容日志错误。
+
+#### `1.19.10`-->`1.19.40`：升级
+
+- 将`minecraft:block_light_filter`字段重命名为`minecraft:light_dampening`。
+
+#### 相关链接
+
+- [手册:minecraft:light_dampening](https://wiki.mcbe-dev.net/-/1165) - Minecraft基岩版开发Wiki
+
 ### `minecraft:light_emission`
+
+:::: code-group
+::: code-group-item 1.19.10
+
+```json
+int "minecraft:light_emission"<0-15> : opt // 设置方块的光照发射度，默认为`0`
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:block_light_emission" : opt // 设置方块的光照发射度
+{
+    float "emission"<0.0-1.0> // 光照发射度
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 将`emission`字段的值赋给整个`minecraft:block_light_emission`字段。
+  - 如果`emission`不存在，将移除该组件，并报内容日志错误。
+- 将`emission`重映射到`0`-`15`范围之内并设置为整数。
+- 将`minecraft:block_light_emission`字段重命名为`minecraft:light_emission`。
+
+#### 相关链接
+
+- [手册:minecraft:light_emission](https://wiki.mcbe-dev.net/-/2095) - Minecraft基岩版开发Wiki
 
 ### `minecraft:map_color`
 

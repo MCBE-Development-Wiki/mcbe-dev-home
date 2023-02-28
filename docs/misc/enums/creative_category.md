@@ -13,4 +13,4 @@
 | `items`        | 物品                                                         |
 | `commands`     | 命令，仅物品和格式版本小于1.19.40的方块可用                  |
 | `none`         | 无                                                           |
-| `custom`       | 自定义 <span style="color:rgb(255, 85, 85);">仅中国版</span> |
+| `custom`       | 自定义 <Badge type="danger" text="仅中国版" vertical="super" /> |
