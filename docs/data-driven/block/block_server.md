@@ -568,6 +568,7 @@ object "minecraft:block_light_absorption" : opt // 设置方块的光照隔除�
 #### 相关链接
 
 - [手册:minecraft:light_dampening](https://wiki.mcbe-dev.net/-/1165) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:light_dampening](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_light_dampening) - Microsoft Learn
 
 ### `minecraft:light_emission`
 
@@ -595,24 +596,191 @@ object "minecraft:block_light_emission" : opt // 设置方块的光照发射度
 
 - 将`emission`字段的值赋给整个`minecraft:block_light_emission`字段。
   - 如果`emission`不存在，将移除该组件，并报内容日志错误。
-- 将`emission`重映射到`0`-`15`范围之内并设置为整数。
+- 将`minecraft:block_light_emission`重映射到`0`-`15`范围之内并设置为整数。
 - 将`minecraft:block_light_emission`字段重命名为`minecraft:light_emission`。
 
 #### 相关链接
 
 - [手册:minecraft:light_emission](https://wiki.mcbe-dev.net/-/2095) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:light_emission](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_light_emission) - Microsoft Learn
 
 ### `minecraft:map_color`
 
+:::: code-group
+::: code-group-item 1.19.10
+
+```json
+string "minecraft:map_color"</^#[a-fA-F0-9]{6}$/> : opt // 以字符串格式设置方块的地图颜色
+array "minecraft:map_color"[3] : opt // 以数组格式设置方块的地图颜色
+{
+    int "<any array element>"<0-255>
+}
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:map_color" : opt // 设置方块的地图颜色
+{
+    string "map_color"</^#[a-fA-F0-9]{6}$/> // 字符串颜色
+    array "map_color"[3] // 数组颜色
+    {
+        int "<any array element>"<0-255>
+    }
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 将`map_color`字段的值赋给整个`minecraft:map_color`字段。
+  - 如果`map_color`不存在，将移除该组件，并报内容日志错误。
+
+#### 相关链接
+
+- [手册:minecraft:map_color](https://wiki.mcbe-dev.net/-/649) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:map_color](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_map_color) - Microsoft Learn
+
 ### `minecraft:loot`
+
+:::: code-group
+::: code-group-item 1.19.10
+
+```json
+string "minecraft:loot" : opt // 设置战利品表
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:loot" : opt // 设置战利品表
+{
+    string "loot_table" // 战利品表相对路径
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 将`loot_table`字段的值赋给整个`minecraft:loot`字段。
+  - 如果`loot_table`不存在，将移除该组件，并报内容日志错误。
+
+#### 相关链接
+
+- [手册:minecraft:loot](https://wiki.mcbe-dev.net/-/644) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:loot](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_loot) - Microsoft Learn
 
 ### `minecraft:breathability`
 
+::: warning 本段落存在需要实验性玩法的内容。影响的内容：
+`1.19.10` - 根字段：假日创作者功能<br>
+`0.0.0` - 根字段：假日创作者功能
+:::
+
+::: danger 该组件的解析因向前兼容性而依旧存在，但已实质性失效。
+:::
+
+:::: code-group
+::: code-group-item 1.19.10
+
+```json
+string "minecraft:breathability"<"solid", "air"> : opt // 设置可呼吸性，默认为`solid`
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:breathability" : opt // 设置可呼吸性
+{
+    string "breathing_type"<"solid", "air"> // 呼吸类型，默认为`solid`
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 将`breathing_type`字段的值赋给整个`minecraft:breathability`字段。
+  - 如果`breathing_type`不存在，将移除该组件，并报内容日志错误。
+
+#### 相关链接
+
+- [手册:minecraft:breathability](https://wiki.mcbe-dev.net/-/2097) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:breathability](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_breathability) - Microsoft Learn<Badge type="danger" text="死链" vertical="top" />
+
 ### `minecraft:creative_category`
 
-### `minecraft:rotation`
+::: warning 本段落存在需要实验性玩法的内容。影响的内容：
+`1.19.10` - 根字段：假日创作者功能<br>
+`0.0.0` - 根字段：假日创作者功能
+:::
+
+::: danger 该组件已弃用，请使用<a href="#block-description">方块描述</a>中的<code>menu_category</code>实现相同功能。
+:::
+
+:::: code-group
+::: code-group-item 1.19.20
+
+```json
+object "minecraft:creative_category" : opt // 设置创造分类和分组，空组件
+{
+}
+```
+
+:::
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:creative_category" : opt // 设置创造分类和分组
+{
+    string "group" // 创造分组
+    enumerated_value "category"<"all","construction","nature","equipment","items","commands", "none", "custom"> // 创造分类，默认为`none`，其中`custom`仅中国版支持
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.20`：升级
+
+- 将`group`和`category`的值赋给方块描述组件下的`menu_category`下的`group`和`category`。
+- 删除整个对象。
+
+#### 相关链接
+
+- [手册:minecraft:creative_category](https://wiki.mcbe-dev.net/-/2404) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:creative_category](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_creative_category) - Microsoft Learn<Badge type="danger" text="死链" vertical="top" />
 
 ### `minecraft:unit_cube`
+
+::: warning 本段落存在需要实验性玩法的内容。影响的内容：
+`0.0.0` - 根字段：假日创作者功能
+:::
+
+:::: code-group
+::: code-group-item 0.0.0
+
+```json
+object "minecraft:unit_cube" : opt // 设置是否曲面细分时使用一个单位立方体，空对象
+{
+}
+```
+
+:::
+::::
+
+#### 相关链接
+
+- [手册:minecraft:unit_cube](https://wiki.mcbe-dev.net/-/2146) - Minecraft基岩版开发Wiki
+- [Block Documentation - minecraft:unit_cube](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_unit_cube) - Microsoft Learn
 
 ### `minecraft:queued_ticking`
 
@@ -631,6 +799,8 @@ object "minecraft:block_light_emission" : opt // 设置方块的光照发射度
 ### `minecraft:display_name`
 
 ### `minecraft:placement_filter`
+
+### `minecraft:transformation`
 
 ### `minecraft:part_visibility`
 
