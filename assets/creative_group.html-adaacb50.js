@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-2d2f1023","path":"/misc/enums/creative_group.html","title":"作用域化创造分组枚举","lang":"zh-CN","frontmatter":{},"headers":[],"git":{},"filePathRelative":"misc/enums/creative_group.md"}');export{e as data};

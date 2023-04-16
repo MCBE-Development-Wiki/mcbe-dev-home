@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-78efef1c","path":"/official/schemas.html","title":"模式文档","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"概述","slug":"概述","link":"#概述","children":[]},{"level":2,"title":"模式","slug":"模式","link":"#模式","children":[]}],"git":{},"filePathRelative":"official/schemas.md"}');export{e as data};

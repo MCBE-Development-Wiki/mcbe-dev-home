@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-64ea26d4","path":"/misc/enums/block_sound_type.html","title":"方块声音类型枚举","lang":"zh-CN","frontmatter":{},"headers":[],"git":{},"filePathRelative":"misc/enums/block_sound_type.md"}');export{e as data};

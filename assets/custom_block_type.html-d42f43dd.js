@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-9125fd34","path":"/misc/enums/custom_block_type.html","title":"自定义方块类型枚举","lang":"zh-CN","frontmatter":{},"headers":[],"git":{},"filePathRelative":"misc/enums/custom_block_type.md"}');export{t as data};

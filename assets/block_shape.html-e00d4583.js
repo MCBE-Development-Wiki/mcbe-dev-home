@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-66e9ef91","path":"/misc/enums/block_shape.html","title":"方块形状枚举","lang":"zh-CN","frontmatter":{},"headers":[],"git":{},"filePathRelative":"misc/enums/block_shape.md"}');export{e as data};

@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-73b29bec","path":"/data-driven/texture/dynamic_textures.html","title":"动态纹理定义文件","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"模式","slug":"模式","link":"#模式","children":[]},{"level":2,"title":"外部链接","slug":"外部链接","link":"#外部链接","children":[]}],"git":{},"filePathRelative":"data-driven/texture/dynamic_textures.md"}');export{e as data};

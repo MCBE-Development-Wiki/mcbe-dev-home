@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-4dadcbd6","path":"/data-driven/general/signatures.html","title":"签名文件","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"模式","slug":"模式","link":"#模式","children":[]}],"git":{},"filePathRelative":"data-driven/general/signatures.md"}');export{e as data};

@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-d87e084c","path":"/misc/enums/custom_item_type.html","title":"自定义物品类型枚举","lang":"zh-CN","frontmatter":{},"headers":[],"git":{},"filePathRelative":"misc/enums/custom_item_type.md"}');export{t as data};

@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-5b21b464","path":"/misc/enums/material_type.html","title":"方块材料类型枚举","lang":"zh-CN","frontmatter":{},"headers":[],"git":{},"filePathRelative":"misc/enums/material_type.md"}');export{t as data};
