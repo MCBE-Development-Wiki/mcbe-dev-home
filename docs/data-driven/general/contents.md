@@ -19,7 +19,7 @@
 :::: code-group
 ::: code-group-item 1
 
-```json
+```schema
 object
 {
     int "version" // 该文件的格式版本，此处应为`1`
@@ -37,7 +37,7 @@ object
 :::
 ::: code-group-item 0
 
-```json
+```schema
 object
 {
     int "version" : opt // 该文件的格式版本，此处应为`0`

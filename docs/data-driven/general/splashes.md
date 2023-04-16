@@ -14,7 +14,7 @@
 
 ## 模式
 
-```json
+```schema
 object
 {
     bool "canMerge" : opt // 该闪烁标语文件是否可以与各版本的闪烁标语文件合并，例如父包和子包的闪烁标语合并

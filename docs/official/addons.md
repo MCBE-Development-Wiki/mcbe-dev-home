@@ -71,7 +71,7 @@
 
 #### 行为包
 
-```json
+```schema
 {
     "format_version": 1,
     "header": {
@@ -114,7 +114,7 @@
 
 #### 资源包
 
-```json
+```schema
 {
     "format_version": 1,
     "header": {

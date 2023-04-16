@@ -1,11 +1,13 @@
-import { defineUserConfig } from 'vuepress'
-import { defaultTheme } from '@vuepress/theme-default'
-import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-import { searchPlugin } from '@vuepress/plugin-search'
-import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
-import { getDirname, path } from '@vuepress/utils'
+import { defineUserConfig } from 'vuepress';
+import { defaultTheme } from '@vuepress/theme-default';
+import { docsearchPlugin } from '@vuepress/plugin-docsearch';
+import { searchPlugin } from '@vuepress/plugin-search';
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics';
+import { highlightjsPlugin } from 'vuepress-plugin-highlightjs';
+import { getDirname, path } from '@vuepress/utils';
+import schema_grammar  from "./lib/syntax/hljs-schema.js"
 
-const vuepressRoot = getDirname(import.meta.url)
+const vuepressRoot = getDirname(import.meta.url);
 
 export default defineUserConfig({
     base: '/addons/',
@@ -438,11 +440,16 @@ export default defineUserConfig({
                 placeholder: '搜索',
               },
             },
-          }),
+        }),
         googleAnalyticsPlugin({
             id: 'G-0BK58QNZVG',
             debug: true,
         }),
-        '@vuepress/plugin-html-redirect',
+        highlightjsPlugin({
+            extraLanguages: {
+              schema:    schema_grammar,
+            },
+          }),
+        //'@vuepress/plugin-html-redirect',
     ]
 });

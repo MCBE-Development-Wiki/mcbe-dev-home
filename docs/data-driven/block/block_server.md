@@ -26,7 +26,7 @@
 :::: code-group
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object
 {
     float "format_version" // 该文件的格式版本，会舍弃小数点后第二位及后面的所有位，并将整数位和小数点后第一位分别作为格式版本的主版本号和次版本号
@@ -46,7 +46,7 @@ object
 
 ### `semver`
 
-@[code](../subschemas/semver.json)
+@[code](../subschemas/semver.schema)
 
 ### `block_description`
 
@@ -58,7 +58,7 @@ object
 :::: code-group
 ::: code-group-item 1.19.70
 
-```json
+```schema
 object
 {
     string "identifier" // 该方块类型的赋命名空间标识符
@@ -102,7 +102,7 @@ object
 :::
 ::: code-group-item 1.19.40
 
-```json
+```schema
 object
 {
     string "identifier" // 该方块类型的赋命名空间标识符
@@ -146,7 +146,7 @@ object
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object
 {
     string "identifier" // 该方块类型的赋命名空间标识符
@@ -212,7 +212,7 @@ object
 :::: code-group
 ::: code-group-item 1.19.70
 
-```json
+```schema
 array // 无需实验性玩法
 {
     object "<any array element>" // 一个方块置换
@@ -226,7 +226,7 @@ array // 无需实验性玩法
 :::
 ::: code-group-item 1.19.60
 
-```json
+```schema
 array // 若未开启“假日创作者功能”实验性玩法，该字段内所有内容都不会加载，且会触发内容日志错误
 {
     object "<any array element>" // 一个方块置换
@@ -240,7 +240,7 @@ array // 若未开启“假日创作者功能”实验性玩法，该字段内�
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 array // 除非开启“假日创作者功能”实验性玩法，否则该字段内容虽然会被正常解析，但不会应用
 {
     object "<any array element>" // 一个方块置换
@@ -273,7 +273,7 @@ array // 除非开启“假日创作者功能”实验性玩法，否则该字�
 :::: code-group
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object
 {
     some_component "<any block component>" : opt // 一个方块组件
@@ -290,7 +290,7 @@ object
 :::: code-group
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object
 {
     definition_event "<event name>" : opt // 一个方块事件，键名应填写一个赋命名空间标识符
@@ -309,7 +309,7 @@ object
 :::: code-group
 ::: code-group-item 0.0.0
 
-@[code](../subschemas/definition_event.json)
+@[code](../subschemas/definition_event.schema)
 
 :::
 ::::
@@ -318,7 +318,7 @@ object
 
 ### `molang`
  
-@[code](../subschemas/molang.json)
+@[code](../subschemas/molang.schema)
 
 ## 枚举
 
@@ -333,10 +333,14 @@ object
 
 ### `minecraft:destructible_by_mining`
 
+::: tip 曾用名：
+<code>minecraft:destroy_time</code>
+:::
+
 :::: code-group
 ::: code-group-item 1.19.20
 
-```json
+```schema
 bool "minecraft:destructible_by_mining" : opt // 设置方块是否可以被挖掘，默认为`true`
 object "minecraft:destructible_by_mining" : opt // 设置方块的摧毁时间
 {
@@ -347,14 +351,14 @@ object "minecraft:destructible_by_mining" : opt // 设置方块的摧毁时间
 :::
 ::: code-group-item 1.19.10
 
-```json
+```schema
 float "minecraft:destroy_time"<0.0-*> : opt // 设置方块的基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到，默认为`0.0`
 ```
 
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:destroy_time" : opt // 设置方块的摧毁时间
 {
     float "destroy_time"<0.0-*> // 基摧毁时间，即硬度值，实际摧毁时间将根据基摧毁时间进行计算得到
@@ -382,10 +386,14 @@ object "minecraft:destroy_time" : opt // 设置方块的摧毁时间
 
 ### `minecraft:destructible_by_explosion`
 
+::: tip 曾用名：
+<code>minecraft:explosion_resistance</code>
+:::
+
 :::: code-group
 ::: code-group-item 1.19.20
 
-```json
+```schema
 bool "minecraft:destructible_by_explosion" : opt // 设置方块是否可以被爆炸破坏，默认为`true`
 object "minecraft:destructible_by_explosion" : opt // 设置方块的爆炸抗性
 {
@@ -396,14 +404,14 @@ object "minecraft:destructible_by_explosion" : opt // 设置方块的爆炸抗�
 :::
 ::: code-group-item 1.19.10
 
-```json
+```schema
 float "minecraft:explosion_resistance"<0.0-*> : opt // 设置方块的基爆照抗性，默认为`0.0`
 ```
 
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:explosion_resistance" : opt // 设置方块的爆炸抗性
 {
     float "resistance"<0.0-*> // 基爆照抗性
@@ -434,7 +442,7 @@ object "minecraft:explosion_resistance" : opt // 设置方块的爆炸抗性
 :::: code-group
 ::: code-group-item 1.19.10
 
-```json
+```schema
 bool "minecraft:flammable" : opt // 设置方块是否可以自然地开始燃烧
 object "minecraft:flammable" : opt // 设置方块的引燃和烧毁修饰符
 {
@@ -446,7 +454,7 @@ object "minecraft:flammable" : opt // 设置方块的引燃和烧毁修饰符
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:flammable" : opt // 设置方块的引燃和烧毁修饰符
 {
     int "flame_odds"<0-*> // 方块的引燃几率
@@ -474,21 +482,21 @@ object "minecraft:flammable" : opt // 设置方块的引燃和烧毁修饰符
 :::: code-group
 ::: code-group-item 1.19.20
 
-```json
+```schema
 float "minecraft:friction"<0.0-0.9> : opt // 设置方块的地面摩擦，默认为`0.4`
 ```
 
 :::
 ::: code-group-item 1.19.10
 
-```json
+```schema
 float "minecraft:friction"<0.1-1.0> : opt // 设置实体在方块上运动时的摩擦因子，默认为`0.6`
 ```
 
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:friction" : opt // 设置实体在方块上运动时的摩擦因子
 {
     int "friction"<0.1-1.0> // 摩擦因子
@@ -514,24 +522,29 @@ object "minecraft:friction" : opt // 设置实体在方块上运动时的摩擦�
 
 ### `minecraft:light_dampening`
 
+::: tip 曾用名：
+<code>minecraft:block_light_absorption</code><br>
+<code>minecraft:block_light_filter</code>
+:::
+
 :::: code-group
 ::: code-group-item 1.19.40
 
-```json
+```schema
 int "minecraft:light_dampening"<0-15> : opt // 设置方块的光照隔除度，默认为`15`
 ```
 
 :::
 ::: code-group-item 1.19.10
 
-```json
+```schema
 int "minecraft:block_light_filter"<0-15> : opt // 设置方块的光照隔除度，默认为`15`
 ```
 
 :::
 ::: code-group-item 1.18.0
 
-```json
+```schema
 object "minecraft:block_light_filter" : opt // 设置方块的光照隔除度
 {
     int "filter_level"<0-15> // 光照隔除度
@@ -541,7 +554,7 @@ object "minecraft:block_light_filter" : opt // 设置方块的光照隔除度
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:block_light_absorption" : opt // 设置方块的光照隔除度
 {
     float "filter_level"<0.0-16.0> // 光照隔除度
@@ -572,17 +585,21 @@ object "minecraft:block_light_absorption" : opt // 设置方块的光照隔除�
 
 ### `minecraft:light_emission`
 
+::: tip 曾用名：
+<code>minecraft:block_light_emission</code>
+:::
+
 :::: code-group
 ::: code-group-item 1.19.10
 
-```json
+```schema
 int "minecraft:light_emission"<0-15> : opt // 设置方块的光照发射度，默认为`0`
 ```
 
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:block_light_emission" : opt // 设置方块的光照发射度
 {
     float "emission"<0.0-1.0> // 光照发射度
@@ -609,7 +626,7 @@ object "minecraft:block_light_emission" : opt // 设置方块的光照发射度
 :::: code-group
 ::: code-group-item 1.19.10
 
-```json
+```schema
 string "minecraft:map_color"</^#[a-fA-F0-9]{6}$/> : opt // 以字符串格式设置方块的地图颜色
 array "minecraft:map_color"[3] : opt // 以数组格式设置方块的地图颜色
 {
@@ -620,7 +637,7 @@ array "minecraft:map_color"[3] : opt // 以数组格式设置方块的地图颜�
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:map_color" : opt // 设置方块的地图颜色
 {
     string "map_color"</^#[a-fA-F0-9]{6}$/> // 字符串颜色
@@ -649,14 +666,14 @@ object "minecraft:map_color" : opt // 设置方块的地图颜色
 :::: code-group
 ::: code-group-item 1.19.10
 
-```json
+```schema
 string "minecraft:loot" : opt // 设置战利品表
 ```
 
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:loot" : opt // 设置战利品表
 {
     string "loot_table" // 战利品表相对路径
@@ -689,14 +706,14 @@ object "minecraft:loot" : opt // 设置战利品表
 :::: code-group
 ::: code-group-item 1.19.10
 
-```json
+```schema
 string "minecraft:breathability"<"solid", "air"> : opt // 设置可呼吸性，默认为`solid`
 ```
 
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:breathability" : opt // 设置可呼吸性
 {
     string "breathing_type"<"solid", "air"> // 呼吸类型，默认为`solid`
@@ -719,7 +736,7 @@ object "minecraft:breathability" : opt // 设置可呼吸性
 ### `minecraft:creative_category`
 
 ::: warning 本段落存在需要实验性玩法的内容。影响的内容：
-`1.19.10` - 根字段：假日创作者功能<br>
+`1.19.20` - 根字段：假日创作者功能<br>
 `0.0.0` - 根字段：假日创作者功能
 :::
 
@@ -729,7 +746,7 @@ object "minecraft:breathability" : opt // 设置可呼吸性
 :::: code-group
 ::: code-group-item 1.19.20
 
-```json
+```schema
 object "minecraft:creative_category" : opt // 设置创造分类和分组，空组件
 {
 }
@@ -738,7 +755,7 @@ object "minecraft:creative_category" : opt // 设置创造分类和分组，空�
 :::
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:creative_category" : opt // 设置创造分类和分组
 {
     string "group" // 创造分组
@@ -768,7 +785,7 @@ object "minecraft:creative_category" : opt // 设置创造分类和分组
 :::: code-group
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object "minecraft:unit_cube" : opt // 设置是否曲面细分时使用一个单位立方体，空对象
 {
 }
@@ -783,6 +800,64 @@ object "minecraft:unit_cube" : opt // 设置是否曲面细分时使用一个单
 - [Block Documentation - minecraft:unit_cube](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_unit_cube) - Microsoft Learn
 
 ### `minecraft:queued_ticking`
+
+::: tip 曾用名：
+<code>minecraft:ticking</code>
+:::
+
+::: warning 本段落存在需要实验性玩法的内容。影响的内容：
+`1.19.10` - 根字段：假日创作者功能<br>
+`0.0.0` - 根字段：假日创作者功能
+:::
+
+:::: code-group
+::: code-group-item 1.19.10
+
+```schema
+object "minecraft:queued_ticking" : opt // 设置队列滴答
+{
+    trigger "on_tick" // 滴答触发器
+    array "interval_range"[2] // 滴答区间的长度取值范围
+    {
+        int "<any array element>"<0-*> // 以秒为单位
+    }
+    bool "looping" : opt // 滴答是否循环，默认为`true`
+}
+```
+
+:::
+::: code-group-item 0.0.0
+
+```schema
+object "minecraft:ticking" : opt // 设置队列滴答
+{
+    trigger "on_tick" // 滴答触发器
+    array "range"[2] // 滴答区间的长度取值范围
+    {
+        float "<any array element>"<0.0-*> // 以刻为单位
+    }
+    bool "looping" : opt // 滴答是否循环，默认为`true`
+}
+```
+
+:::
+::::
+
+#### `0.0.0`-->`1.19.10`：升级
+
+- 如果`on_tick`不存在，将移除该组件，并报内容日志错误。
+- 如果`range`不存在，将移除该组件，并报内容日志错误。
+- 将`range`数组内元素的值分别乘以`20.0`，钳制为大于或等于`0.0`，并取整。
+- 将`range`字段重命名为`interval_range`。
+- 将`minecraft:ticking`字段重命名为`minecraft:queued_ticking`。
+
+#### `trigger`
+
+@[code](../subschemas/trigger.schema)
+
+#### 相关链接
+
+- [手册:minecraft:unit_cube](https://wiki.mcbe-dev.net/-/1600) - Minecraft基岩版开发Wiki
 
 ### `minecraft:random_ticking`
 

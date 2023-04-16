@@ -14,7 +14,7 @@
 
 ## 模式
 
-```json
+```schema
 array
 {
     object "<any array element>"

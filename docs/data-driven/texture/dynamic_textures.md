@@ -19,7 +19,7 @@
 
 两个动态纹理定义文件共享同一种文件模式。
 
-```json
+```schema
 array
 {
     object "<any array element>" // 一个动态纹理定义

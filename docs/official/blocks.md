@@ -18,7 +18,7 @@
 
 示例
 
-```json
+```schema
 {
   "format_version": "1.19.40",
   "minecraft:block": {

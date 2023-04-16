@@ -12,7 +12,7 @@
 
 ## 模式
 
-```json
+```schema
 actor_animation:1.8.0:{
     version "format_version"
     object "animations"

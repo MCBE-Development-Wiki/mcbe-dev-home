@@ -19,7 +19,7 @@
 
 两个图集定义文件共享同一种文件模式。
 
-```json
+```schema
 object
 {
     int "padding" : opt // 该图集中所有纹理在合成整张图像时所具有的内边距，默认为`0`
@@ -43,7 +43,7 @@ object
 
 ### `element_collection`
 
-```json
+```schema
 element // 一个纹理变种的路径
 array
 {
@@ -60,7 +60,7 @@ object
 
 ### `element`
 
-```json
+```schema
 string // 一个纹理文件相对于资源包根目录的不具有扩展名的路径
 object
 {
@@ -91,7 +91,7 @@ object
 
 ### `color`
 
-```json
+```schema
 string // 格式为`#RGBA`
 array
 {
@@ -104,7 +104,7 @@ array
 
 ### `texture_isotropic`
 
-@[code](../subschemas/texture_isotropic.json)
+@[code](../subschemas/texture_isotropic.schema)
 
 ## 原版用例
 

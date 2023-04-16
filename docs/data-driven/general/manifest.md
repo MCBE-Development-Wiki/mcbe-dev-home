@@ -23,7 +23,7 @@
 :::: code-group
 ::: code-group-item 2
 
-```json
+```schema
 object
 {
     int "format_version" // 该文件的格式版本，此处应为`1`
@@ -164,7 +164,7 @@ object
 :::
 ::: code-group-item 1
 
-```json
+```schema
 object
 {
     int "format_version" // 该文件的格式版本，此处应为`1`
@@ -305,7 +305,7 @@ object
 :::
 ::: code-group-item 0
 
-```json
+```schema
 object
 {
     int "format_version" // 该文件的格式版本，此处应为`0`
@@ -365,7 +365,7 @@ object
 
 ### `semver`
 
-@[code](../subschemas/semver.json)
+@[code](../subschemas/semver.schema)
 
 ### 模块类型
 
@@ -413,7 +413,7 @@ object
 
 玩家在包设置面板上进行更改后，该包的设置将会自动保存在`com.mojang/minecraftpe/pack_settings/pack_<uuid>.json`文件中，其中`<uuid>`是该包的UUID。该文件的格式为：
 
-```json
+```schema
 object
 {
     bool "<any control name>" : opt
@@ -474,7 +474,7 @@ object
 
 如果在解析和升级时出现错误，引擎将会在同目录处写入`upgrade_report.log`文件，该文件格式如下：
 
-```json
+```schema
 object
 {
     resource_location "location" // 该包的资源位置
@@ -494,7 +494,7 @@ object
 
 #### `resource_location`
 
-```json
+```schema
 object
 {
     int "fs" // 该资源位置所处的文件系统
@@ -504,7 +504,7 @@ object
 
 #### `pack_error`
 
-```json
+```schema
 object
 {
     int "type" // 错误类型

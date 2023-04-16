@@ -21,7 +21,7 @@
 :::: code-group
 ::: code-group-item 0.0.0
 
-```json
+```schema
 object
 {
     semver "format_version" // 该文件的格式版本，不支持`*`
@@ -84,11 +84,11 @@ object
 
 ### `semver`
 
-@[code](../subschemas/semver.json)
+@[code](../subschemas/semver.schema)
 
 ### `textures`
 
-```json
+```schema
 string // 各面都会应用同一个纹理
 object // 三面式解析
 {
@@ -109,7 +109,7 @@ object // 六面式解析
 
 ### `texture_isotropic`
 
-@[code](../subschemas/texture_isotropic.json)
+@[code](../subschemas/texture_isotropic.schema)
 
 ## 枚举
 

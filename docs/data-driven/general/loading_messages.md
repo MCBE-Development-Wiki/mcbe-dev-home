@@ -14,7 +14,7 @@
 
 ## 模式
 
-```json
+```schema
 object
 {
     array "loading_messages" : opt // 正常游戏显示的加载消息列表
